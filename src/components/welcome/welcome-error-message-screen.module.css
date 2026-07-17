@@ -1,0 +1,470 @@
+.page {
+  --purple: #611262;
+  --cream: #f5e0b1;
+  --green: #014a3f;
+  --ink: #21140f;
+  --muted: #d2c7c4;
+  --outline: #9b609d;
+
+  width: 100%;
+  min-height: 100svh;
+  overflow-x: hidden;
+  background-color: var(--purple);
+  color: #ffffff;
+}
+
+.shell {
+  display: flex;
+  width: 100%;
+  max-width: 568px;
+  min-height: 100svh;
+  flex-direction: column;
+  margin-inline: auto;
+  padding:
+    clamp(
+      110px,
+      16svh,
+      186px
+    )
+    32px
+    40px;
+}
+
+.brand {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 12px;
+}
+
+.brandTiles {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.logoTile {
+  position: relative;
+  display: grid;
+  width: 63px;
+  height: 43px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 6px;
+  background-color: var(--cream);
+  color: var(--ink);
+}
+
+.logoTile strong {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.logoTile small {
+  position: absolute;
+  right: 14%;
+  bottom: 10%;
+  color: var(--ink);
+  font-size: 9px;
+  line-height: 1;
+}
+
+.brandName {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.artwork {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  margin-top: 86px;
+}
+
+.wordTileRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.wordTile {
+  position: relative;
+  display: grid;
+  width: 74px;
+  height: 72px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 8px;
+  background-color: var(--cream);
+  color: var(--ink);
+  transform:
+    rotate(
+      var(--error-tile-rotation)
+    );
+}
+
+.wordTile strong {
+  font-size: 33px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.wordTile small {
+  position: absolute;
+  right: 13%;
+  bottom: 10%;
+  color: var(--ink);
+  font-size: 10px;
+  line-height: 1;
+}
+
+.concealedBadge {
+  position: absolute;
+  right: 8px;
+  bottom: 2px;
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 6px;
+  border-radius: 11px;
+  background-color: var(--green);
+  padding-inline: 16px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hero {
+  margin-top: 58px;
+}
+
+.hero h1 {
+  max-width: 500px;
+  margin: 0;
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.045em;
+}
+
+.hero p {
+  max-width: 500px;
+  margin:
+    14px
+    0
+    0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.actions {
+  width: 100%;
+  margin-top: 39px;
+}
+
+.guestButton {
+  display: inline-flex;
+  width: 100%;
+  min-height: 78px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 13px;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.guestButton:hover:not(:disabled) {
+  background-color: #f8e8c3;
+}
+
+.guestButton:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.errorMessage {
+  display: flex;
+  width: 100%;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  border-radius: 12px;
+  background-color: var(--green);
+  color: #ffffff;
+}
+
+.errorEmoji {
+  display: block;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.accountActions {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+  gap: 38px;
+  margin-top: 36px;
+}
+
+.signInButton,
+.registerButton {
+  display: inline-flex;
+  min-height: 65px;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.signInButton {
+  border:
+    2px
+    solid
+    var(--outline);
+  border-radius: 12px;
+}
+
+.registerButton {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  animation:
+    spin
+    800ms
+    linear
+    infinite;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 500px) {
+  .shell {
+    max-width: 438px;
+    padding:
+      clamp(
+        82px,
+        13svh,
+        130px
+      )
+      23px
+      36px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .logoTile {
+    width: 53px;
+    height: 36px;
+  }
+
+  .logoTile strong {
+    font-size: 23px;
+  }
+
+  .logoTile small {
+    font-size: 8px;
+  }
+
+  .brandName {
+    font-size: 24px;
+  }
+
+  .artwork {
+    height: 112px;
+    margin-top: 64px;
+  }
+
+  .wordTileRow {
+    gap: 5px;
+  }
+
+  .wordTile {
+    width: 62px;
+    height: 61px;
+  }
+
+  .wordTile strong {
+    font-size: 28px;
+  }
+
+  .concealedBadge {
+    right: 0;
+    min-height: 34px;
+    font-size: 12px;
+  }
+
+  .hero {
+    margin-top: 42px;
+  }
+
+  .hero h1 {
+    font-size: 29px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .actions {
+    margin-top: 33px;
+  }
+
+  .guestButton {
+    min-height: 61px;
+    font-size: 18px;
+  }
+
+  .errorMessage {
+    min-height: 49px;
+  }
+
+  .accountActions {
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .signInButton,
+  .registerButton {
+    min-height: 58px;
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 370px) {
+  .shell {
+    padding-inline: 17px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .logoTile {
+    width: 45px;
+    height: 33px;
+  }
+
+  .logoTile strong {
+    font-size: 20px;
+  }
+
+  .brandName {
+    font-size: 20px;
+  }
+
+  .wordTileRow {
+    gap: 2px;
+  }
+
+  .wordTile {
+    width: 54px;
+    height: 54px;
+  }
+
+  .wordTile strong {
+    font-size: 24px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .shell {
+    max-width: 650px;
+    padding:
+      72px
+      48px;
+  }
+
+  .brand {
+    margin-inline: auto;
+  }
+
+  .artwork {
+    max-width: 540px;
+    margin:
+      72px
+      auto
+      0;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .hero h1,
+  .hero p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .actions {
+    width: 100%;
+    max-width: 540px;
+    margin:
+      42px
+      auto
+      0;
+  }
+}
+
+@media (min-width: 1100px) {
+  .shell {
+    max-width: 720px;
+  }
+
+  .brandName {
+    font-size: 30px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .actions {
+    max-width: 560px;
+  }
+}

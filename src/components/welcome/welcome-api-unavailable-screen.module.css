@@ -1,0 +1,548 @@
+.apiPage {
+  --purple: #4a0250;
+  --cream: #eed99f;
+  --green: #123b30;
+  --error: #831910;
+  --ink: #18100d;
+  --muted: #ccb6d0;
+
+  width: 100%;
+  min-height: 100svh;
+  overflow-x: hidden;
+  background: var(--purple);
+  color: #ffffff;
+  font-family:
+    Arial,
+    Helvetica,
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+}
+
+.apiShell {
+  display: flex;
+  width: 100%;
+  max-width: 510px;
+  min-height: 100svh;
+  flex-direction: column;
+  margin-inline: auto;
+  padding:
+    clamp(
+      96px,
+      18.4svh,
+      194px
+    )
+    26px
+    36px;
+}
+
+.apiBrand {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 11px;
+}
+
+.apiBrandTiles {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.apiLogoTile {
+  position: relative;
+  display: grid;
+  width: 57px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.apiLogoTile strong {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.apiLogoTile small {
+  position: absolute;
+  right: 14%;
+  bottom: 10%;
+  font-size: 9px;
+  line-height: 1;
+}
+
+.apiBrandName {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.apiErrorCard {
+  display: flex;
+  width: 100%;
+  min-height: 134px;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 34px;
+  border: 0;
+  border-radius: 15px;
+  background: var(--cream);
+  padding:
+    22px
+    22px;
+  color: var(--error);
+}
+
+.apiErrorHeading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.apiErrorHeading strong {
+  color: var(--error);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.apiErrorIcon {
+  width: 21px;
+  height: 21px;
+  flex: 0 0 auto;
+  fill: #000000;
+  color: #000000;
+  stroke: #000000;
+  stroke-width: 2.5;
+}
+
+.apiErrorCard p {
+  margin: 0;
+  color: var(--error);
+  font-size: 17px;
+  line-height: 1.47;
+}
+
+.apiHero {
+  margin-top: 33px;
+}
+
+.apiHero h1 {
+  max-width: 455px;
+  margin: 0;
+  color: #ffffff;
+  font-size: 31px;
+  font-weight: 800;
+  line-height: 1.24;
+  letter-spacing: -0.045em;
+}
+
+.apiHero p {
+  max-width: 455px;
+  margin:
+    13px
+    0
+    0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.apiActions {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.apiStartButton,
+.apiRetryButton {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.apiStartButton {
+  min-height: 70px;
+  border-radius: 12px;
+  background: var(--green);
+  color: #ffffff;
+}
+
+.apiRetryButton {
+  min-height: 65px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.apiStartButton:hover:not(:disabled) {
+  background: #17483c;
+}
+
+.apiRetryButton:hover:not(:disabled) {
+  background: #f5f5f5;
+}
+
+.apiStartButton:active:not(:disabled),
+.apiRetryButton:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.apiStartButton:disabled,
+.apiRetryButton:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.apiAccountLink {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.apiSpinner {
+  width: 19px;
+  height: 19px;
+  animation:
+    apiSpin
+    800ms
+    linear
+    infinite;
+}
+
+@keyframes apiSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 420px) {
+  .apiShell {
+    padding-inline: 20px;
+  }
+
+  .apiLogoTile {
+    width: 49px;
+    height: 35px;
+  }
+
+  .apiLogoTile strong {
+    font-size: 21px;
+  }
+
+  .apiBrandName {
+    font-size: 22px;
+  }
+
+  .apiErrorCard {
+    padding-inline: 18px;
+  }
+
+  .apiErrorHeading strong {
+    font-size: 16px;
+  }
+
+  .apiErrorCard p {
+    font-size: 15px;
+  }
+
+  .apiHero h1 {
+    font-size: 28px;
+  }
+
+  .apiHero p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 350px) {
+  .apiShell {
+    padding-inline: 16px;
+  }
+
+  .apiBrand {
+    gap: 8px;
+  }
+
+  .apiLogoTile {
+    width: 43px;
+    height: 32px;
+  }
+
+  .apiBrandName {
+    font-size: 19px;
+  }
+
+  .apiHero h1 {
+    font-size: 25px;
+  }
+
+  .apiStartButton,
+  .apiRetryButton {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .apiShell {
+    max-width: 620px;
+    justify-content: center;
+    padding:
+      64px
+      48px;
+  }
+
+  .apiBrand {
+    margin-inline: auto;
+  }
+
+  .apiErrorCard {
+    min-height: auto;
+    margin-top: 42px;
+    padding:
+      24px
+      26px;
+  }
+
+  .apiHero {
+    margin-top: 42px;
+    text-align: center;
+  }
+
+  .apiHero h1 {
+    max-width: 550px;
+    margin-inline: auto;
+    font-size: 40px;
+    line-height: 1.12;
+  }
+
+  .apiHero p {
+    max-width: 500px;
+    margin:
+      16px
+      auto
+      0;
+    font-size: 17px;
+  }
+
+  .apiActions {
+    width: 100%;
+    max-width: 540px;
+    margin:
+      40px
+      auto
+      0;
+  }
+
+  .apiStartButton,
+  .apiRetryButton {
+    min-height: 62px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .apiShell {
+    max-width: 680px;
+  }
+
+  .apiBrandName {
+    font-size: 28px;
+  }
+
+  .apiHero h1 {
+    font-size: 46px;
+  }
+
+  .apiErrorHeading strong {
+    font-size: 19px;
+  }
+
+  .apiErrorCard p {
+    font-size: 16px;
+  }
+
+  .apiActions {
+    max-width: 560px;
+  }
+}
+
+/* Home-screen brand alignment */
+
+.apiShell {
+  width: 100%;
+  max-width: 438px;
+  min-height: 100svh;
+  margin-inline: auto;
+  padding:
+    30px
+    24px
+    38px;
+}
+
+.apiBrand {
+  margin: 0;
+  gap: 10px;
+}
+
+.apiBrandTiles {
+  gap: 4px;
+}
+
+.apiLogoTile {
+  width: 53px;
+  height: 36px;
+  border-radius: 6px;
+}
+
+.apiLogoTile strong {
+  font-size: 24px;
+}
+
+.apiLogoTile small {
+  font-size: 8px;
+}
+
+.apiBrandName {
+  font-size: 24px;
+  letter-spacing: -0.04em;
+}
+
+.apiErrorCard {
+  margin-top: 34px;
+}
+
+@media (max-width: 380px) {
+  .apiShell {
+    padding-inline: 17px;
+  }
+
+  .apiLogoTile {
+    width: 49px;
+    height: 35px;
+  }
+
+  .apiLogoTile strong {
+    font-size: 21px;
+  }
+
+  .apiBrandName {
+    font-size: 21px;
+  }
+}
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1099px
+) {
+  .apiShell {
+    max-width: 520px;
+    justify-content: flex-start;
+    padding:
+      64px
+      48px
+      48px;
+  }
+
+  .apiBrand {
+    margin: 0;
+  }
+
+  .apiErrorCard {
+    margin-top: 38px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .apiShell {
+    width: 100%;
+    max-width: 1440px;
+    min-height: 100vh;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding:
+      78px
+      clamp(
+        54px,
+        4.7vw,
+        72px
+      )
+      60px;
+  }
+
+  .apiBrand {
+    margin: 0;
+    gap: 8px;
+  }
+
+  .apiBrandTiles {
+    gap: 3px;
+  }
+
+  .apiLogoTile {
+    width: 34px;
+    height: 24px;
+    border-radius: 4px;
+  }
+
+  .apiLogoTile strong {
+    font-size: 14px;
+  }
+
+  .apiLogoTile small {
+    font-size: 6px;
+  }
+
+  .apiBrandName {
+    font-size: 16px;
+    letter-spacing: -0.025em;
+  }
+
+  .apiErrorCard,
+  .apiHero,
+  .apiActions {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  .apiErrorCard {
+    margin-top: 42px;
+  }
+
+  .apiHero {
+    text-align: left;
+  }
+
+  .apiHero h1,
+  .apiHero p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .apiActions {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

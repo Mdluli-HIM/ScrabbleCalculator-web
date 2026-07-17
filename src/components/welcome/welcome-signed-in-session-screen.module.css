@@ -1,0 +1,500 @@
+.page {
+  --purple: #611262;
+  --cream: #f5e0b1;
+  --green: #014a3f;
+  --saved-purple: #70136e;
+  --orange: #dc7207;
+  --ink: #21140f;
+  --muted-ink: #77645d;
+  --muted-white: #d2c7c4;
+  --divider: #ddca98;
+
+  width: 100%;
+  min-height: 100svh;
+  overflow-x: hidden;
+  background: var(--purple);
+  color: #ffffff;
+}
+
+.shell {
+  display: flex;
+  width: 100%;
+  max-width: 570px;
+  min-height: 100svh;
+  flex-direction: column;
+  margin-inline: auto;
+  padding:
+    clamp(
+      120px,
+      19svh,
+      220px
+    )
+    46px
+    42px;
+}
+
+.accountHeader {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.userIdentity {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--green);
+}
+
+.membershipBadge {
+  display: inline-flex;
+  min-height: 31px;
+  align-items: center;
+  justify-content: center;
+  border:
+    1.5px
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.35
+    );
+  border-radius: 7px;
+  padding-inline: 13px;
+  font-size: 15px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.brand {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 11px;
+  margin-top: 18px;
+}
+
+.brandTiles {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.logoTile {
+  position: relative;
+  display: grid;
+  width: 59px;
+  height: 40px;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.logoTile strong {
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.logoTile small {
+  position: absolute;
+  right: 14%;
+  bottom: 10%;
+  font-size: 9px;
+  line-height: 1;
+}
+
+.brandName {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.matchCard {
+  width: 100%;
+  margin-top: 35px;
+  border-radius: 23px;
+  background: var(--cream);
+  padding:
+    28px
+    28px
+    27px;
+  color: var(--ink);
+}
+
+.matchStatusRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.statusGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 11px;
+}
+
+.savedBadge {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: var(--saved-purple);
+  padding-inline: 12px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hiddenScore {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--orange);
+  font-size: 17px;
+  line-height: 1;
+}
+
+.hiddenScore svg {
+  width: 15px;
+  height: 15px;
+  color: var(--green);
+}
+
+.roundLabel {
+  color: var(--muted-ink);
+  font-size: 16px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.matchSummary {
+  margin-top: 27px;
+}
+
+.matchSummary h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.matchSummary p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin:
+    8px
+    0
+    0;
+  color: var(--muted-ink);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.recordedPlayers {
+  margin-top: 27px;
+}
+
+.recordedPlayer {
+  display: flex;
+  min-height: 37px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom:
+    1px
+    solid
+    var(--divider);
+  padding:
+    2px
+    10px
+    8px;
+}
+
+.recordedPlayer + .recordedPlayer {
+  padding-top: 8px;
+}
+
+.recordedPlayer strong {
+  color: var(--green);
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.recordedStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--green);
+  font-size: 16px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.recordedStatus svg {
+  width: 14px;
+  height: 14px;
+}
+
+.continueButton {
+  display: inline-flex;
+  width: 100%;
+  min-height: 62px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 33px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--green);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.continueButton:hover:not(:disabled) {
+  background: #07594d;
+}
+
+.continueButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.68;
+}
+
+.newMatchSection {
+  width: 100%;
+  margin-top: 34px;
+}
+
+.newMatchButton {
+  display: inline-flex;
+  width: 100%;
+  min-height: 68px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 11px;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.newMatchButton:hover:not(:disabled) {
+  background: #f8e8c3;
+}
+
+.newMatchButton:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.newMatchSection p {
+  margin:
+    17px
+    8px
+    0;
+  color: var(--muted-white);
+  font-size: 15px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  animation:
+    spin
+    800ms
+    linear
+    infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 500px) {
+  .shell {
+    padding:
+      clamp(
+        92px,
+        16svh,
+        154px
+      )
+      23px
+      34px;
+  }
+
+  .userIdentity {
+    font-size: 15px;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .membershipBadge {
+    min-height: 29px;
+    font-size: 13px;
+  }
+
+  .logoTile {
+    width: 51px;
+    height: 36px;
+  }
+
+  .logoTile strong {
+    font-size: 22px;
+  }
+
+  .brandName {
+    font-size: 24px;
+  }
+
+  .matchCard {
+    padding-inline: 23px;
+  }
+
+  .matchStatusRow {
+    align-items: flex-start;
+  }
+
+  .roundLabel {
+    font-size: 14px;
+  }
+
+  .recordedPlayer strong {
+    font-size: 18px;
+  }
+
+  .recordedStatus {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 390px) {
+  .shell {
+    padding-inline: 17px;
+  }
+
+  .accountHeader {
+    gap: 12px;
+  }
+
+  .userIdentity {
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .membershipBadge {
+    padding-inline: 9px;
+    font-size: 12px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .logoTile {
+    width: 43px;
+    height: 32px;
+  }
+
+  .logoTile strong {
+    font-size: 19px;
+  }
+
+  .brandName {
+    font-size: 20px;
+  }
+
+  .matchStatusRow {
+    display: grid;
+  }
+
+  .roundLabel {
+    margin-top: 3px;
+  }
+
+  .matchSummary h1 {
+    font-size: 22px;
+  }
+
+  .recordedPlayer {
+    padding-inline: 3px;
+  }
+
+  .recordedPlayer strong {
+    font-size: 16px;
+  }
+
+  .recordedStatus {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 768px) {
+  .shell {
+    max-width: 650px;
+    justify-content: center;
+    padding:
+      72px
+      48px;
+  }
+
+  .matchCard {
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .shell {
+    max-width: 720px;
+  }
+
+  .brandName {
+    font-size: 30px;
+  }
+
+  .matchCard {
+    padding:
+      32px
+      34px;
+  }
+
+  .matchSummary h1 {
+    font-size: 29px;
+  }
+
+  .newMatchSection {
+    max-width: 100%;
+  }
+}

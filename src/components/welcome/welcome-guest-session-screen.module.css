@@ -1,0 +1,432 @@
+.page {
+  --purple: #4a0250;
+  --cream: #eed99f;
+  --green: #123b;
+  --orange: #d97706;
+  --ink: #18100d;
+  --muted-ink: #75645b;
+  --muted-white: #ccb6d0;
+  --panel-border: #692d6f;
+  --panel-button: #591a60;
+
+  width: 100%;
+  min-height: 100svh;
+  overflow-x: hidden;
+  background: var(--purple);
+  color: #ffffff;
+}
+
+.shell {
+  display: flex;
+  width: 100%;
+  max-width: 510px;
+  min-height: 100svh;
+  flex-direction: column;
+  justify-content: center;
+  margin-inline: auto;
+  padding:
+    28px
+    21px
+    32px;
+}
+
+.brand {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 11px;
+}
+
+.brandTiles {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.logoTile {
+  position: relative;
+  display: grid;
+  width: 57px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.logoTile strong {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.logoTile small {
+  position: absolute;
+  right: 14%;
+  bottom: 10%;
+  font-size: 9px;
+  line-height: 1;
+}
+
+.brandName {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.sessionLabel {
+  margin:
+    34px
+    0
+    0;
+  color: var(--muted-white);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.matchCard {
+  width: 100%;
+  margin-top: 34px;
+  border-radius: 23px;
+  background: var(--cream);
+  padding:
+    29px
+    27px
+    29px;
+  color: var(--ink);
+}
+
+.matchHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 11px;
+}
+
+.activeBadge {
+  display: inline-flex;
+  min-height: 29px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background: var(--green);
+  padding-inline: 11px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hiddenScore {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #d66b00;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.hiddenScore span {
+  font-size: 14px;
+}
+
+.matchDetails {
+  margin-top: 28px;
+}
+
+.matchDetails h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.matchDetails p {
+  margin:
+    8px
+    0
+    0;
+  color: var(--muted-ink);
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.resumeButton {
+  display: flex;
+  width: 100%;
+  min-height: 57px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--green);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.resumeButton:hover:not(:disabled) {
+  background: #17483c;
+}
+
+.resumeButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.overwriteCard {
+  width: 100%;
+  margin-top: 33px;
+  border:
+    2px
+    solid
+    var(--panel-border);
+  border-radius: 14px;
+  padding:
+    21px
+    20px
+    19px;
+}
+
+.overwriteHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap:
+    10px
+    16px;
+}
+
+.overwriteHeader h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.warningLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--orange);
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.warningLabel svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  fill: currentColor;
+  stroke-width: 2.5;
+}
+
+.overwriteCard > p {
+  margin:
+    18px
+    0
+    0;
+  color: var(--muted-white);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.overwriteButton {
+  display: inline-flex;
+  width: 100%;
+  min-height: 49px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 15px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--panel-button);
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.overwriteButton:hover:not(:disabled) {
+  background: #67216a;
+}
+
+.overwriteButton:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.spinner {
+  width: 17px;
+  height: 17px;
+  animation:
+    spin
+    800ms
+    linear
+    infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 420px) {
+  .shell {
+    padding-inline: 17px;
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .logoTile {
+    width: 49px;
+    height: 35px;
+  }
+
+  .logoTile strong {
+    font-size: 21px;
+  }
+
+  .brandName {
+    font-size: 22px;
+  }
+
+  .sessionLabel {
+    font-size: 14px;
+  }
+
+  .matchCard {
+    padding-inline: 23px;
+  }
+
+  .overwriteHeader {
+    align-items: flex-start;
+  }
+
+  .warningLabel {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 350px) {
+  .logoTile {
+    width: 43px;
+    height: 32px;
+  }
+
+  .brandName {
+    font-size: 19px;
+  }
+
+  .hiddenScore {
+    font-size: 15px;
+  }
+
+  .matchDetails h1 {
+    font-size: 22px;
+  }
+
+  .overwriteCard {
+    padding-inline: 16px;
+  }
+
+  .overwriteHeader {
+    display: grid;
+  }
+}
+
+@media (min-width: 768px) {
+  .shell {
+    max-width: 620px;
+    padding:
+      64px
+      48px;
+  }
+
+  .brand {
+    margin-inline: auto;
+  }
+
+  .sessionLabel {
+    margin-top: 42px;
+    text-align: center;
+  }
+
+  .matchCard {
+    margin-top: 26px;
+  }
+
+  .overwriteCard {
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .shell {
+    max-width: 680px;
+  }
+
+  .brandName {
+    font-size: 28px;
+  }
+
+  .matchCard {
+    padding:
+      32px
+      31px;
+  }
+
+  .matchDetails h1 {
+    font-size: 28px;
+  }
+
+  .overwriteCard {
+    padding:
+      24px
+      24px
+      22px;
+  }
+}
+
+/* Exact Figma green lock */
+
+.activeBadge {
+  background-color: #014a3f !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.resumeButton,
+.resumeButton:disabled {
+  background-color: #014a3f !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+.resumeButton:hover:not(:disabled) {
+  background-color: #07594d !important;
+}
+
+.resumeButton:focus-visible {
+  outline: 3px solid
+    rgba(1, 74, 63, 0.3);
+  outline-offset: 3px;
+}

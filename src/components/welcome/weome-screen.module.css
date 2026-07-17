@@ -1,0 +1,893 @@
+.page {
+  --purple: #4a0250;
+  --cream: #eed99f;
+  --green: #123b30;
+  --orange: #c56204;
+  --ink: #18100d;
+  --muted-white: #c6bbb7;
+  --muted-ink: #75645b;
+  --outline: #794380;
+
+  min-height: 100svh;
+  overflow-x: hidden;
+  background: var(--purple);
+  color: #ffffff;
+}
+
+.shell {
+  width: 100%;
+  min-height: 100svh;
+  margin-inline: auto;
+  padding:
+    25px
+    23px
+    32px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brandTiles {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.brandName {
+  color: #ffffff;
+  font-size: clamp(
+    25px,
+    6.3vw,
+    39px
+  );
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.tile {
+  position: relative;
+  display: inline-grid;
+  flex-shrink: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 7px;
+  background: var(--cream);
+  color: var(--ink);
+  box-shadow: none;
+  transform:
+    rotate(
+      var(--tile-rotation)
+    );
+}
+
+.tile strong {
+  font-weight: 800;
+  line-height: 1;
+}
+
+.tile small {
+  position: absolute;
+  right: 13%;
+  bottom: 10%;
+  line-height: 1;
+}
+
+.logo {
+  width: 84px;
+  height: 57px;
+}
+
+.logo strong {
+  font-size: 31px;
+}
+
+.logo small {
+  font-size: 11px;
+}
+
+.word {
+  width: 82px;
+  height: 77px;
+}
+
+.word strong {
+  font-size: 38px;
+}
+
+.word small {
+  font-size: 12px;
+}
+
+.desktop {
+  width: 94px;
+  height: 88px;
+}
+
+.desktop strong {
+  font-size: 35px;
+}
+
+.desktop small {
+  font-size: 11px;
+}
+
+.headerActions {
+  display: none;
+}
+
+.mobileArtwork {
+  position: relative;
+  width: 360px;
+  max-width: 100%;
+  height: 105px;
+  margin:
+    92px
+    auto
+    0;
+}
+
+.mobileTiles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileTiles .tile {
+  margin-inline: -3px;
+}
+
+.secretBadge {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  gap: 7px;
+  border-radius: 999px;
+  background: var(--green);
+  padding-inline: 21px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transform: rotate(-5deg);
+}
+
+.tabletArtwork,
+.desktopArtwork {
+  display: none;
+}
+
+.hero {
+  margin-top: 111px;
+}
+
+.hero h1 {
+  max-width: 570px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(
+    38px,
+    8.3vw,
+    52px
+  );
+  font-weight: 800;
+  line-height: 1.03;
+  letter-spacing: -0.05em;
+}
+
+.mobileCopy {
+  max-width: 560px;
+  margin:
+    24px
+    0
+    0;
+  color: var(--muted-white);
+  font-size: clamp(
+    20px,
+    4.5vw,
+    27px
+  );
+  line-height: 1.45;
+}
+
+.desktopCopy {
+  display: none;
+}
+
+.sessionGrid {
+  display: grid;
+  gap: 39px;
+  margin-top: 43px;
+}
+
+.sectionLabel {
+  display: none;
+}
+
+.matchCard {
+  width: 100%;
+  border-radius: 30px;
+  background: var(--cream);
+  padding:
+    55px
+    40px
+    55px;
+  color: var(--ink);
+}
+
+.matchHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.activeBadge,
+.emptyBadge {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  padding-inline: 17px;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.activeBadge {
+  background: var(--green);
+  color: #ffffff;
+}
+
+.emptyBadge {
+  background: #dfc998;
+  color: var(--ink);
+}
+
+.hiddenScore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--orange);
+  font-size: 25px;
+  line-height: 1;
+}
+
+.hiddenScore span {
+  font-size: 21px;
+}
+
+.matchContent {
+  margin-top: 38px;
+}
+
+.matchContent h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(
+    31px,
+    6.5vw,
+    39px
+  );
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.matchContent p {
+  margin:
+    12px
+    0
+    0;
+  color: var(--muted-ink);
+  font-size: clamp(
+    21px,
+    4.5vw,
+    27px
+  );
+}
+
+.resumeButton {
+  display: flex;
+  width: 100%;
+  min-height: 84px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 35px;
+  border: 0;
+  border-radius: 15px;
+  background: var(--green);
+  color: #ffffff;
+  font-size: clamp(
+    22px,
+    4.7vw,
+    29px
+  );
+  font-weight: 800;
+}
+
+.resumeButton:hover {
+  background: #17483c;
+}
+
+.startSection {
+  display: grid;
+  gap: 25px;
+}
+
+.startCopy {
+  display: none;
+}
+
+.guestButton {
+  display: inline-flex;
+  width: 100%;
+  min-height: 88px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: clamp(
+    22px,
+    4.5vw,
+    27px
+  );
+  font-weight: 800;
+}
+
+.guestButton:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  animation:
+    spin
+    800ms
+    linear
+    infinite;
+}
+
+.footerActions {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+  gap: 23px;
+}
+
+.signInButton,
+.createAccountButton {
+  display: inline-flex;
+  min-height: 82px;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: clamp(
+    20px,
+    4.3vw,
+    26px
+  );
+}
+
+.signInButton {
+  border:
+    3px
+    solid
+    var(--outline);
+  border-radius: 13px;
+}
+
+.createAccountButton {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 500px) {
+  .shell {
+    padding:
+      16px
+      14px
+      28px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .logo {
+    width: 53px;
+    height: 36px;
+  }
+
+  .logo strong {
+    font-size: 24px;
+  }
+
+  .logo small {
+    font-size: 8px;
+  }
+
+  .brandName {
+    font-size: clamp(
+      20px,
+      6vw,
+      25px
+    );
+  }
+
+  .mobileArtwork {
+    width: 280px;
+    height: 82px;
+    margin-top: 62px;
+  }
+
+  .word {
+    width: 62px;
+    height: 58px;
+  }
+
+  .word strong {
+    font-size: 29px;
+  }
+
+  .word small {
+    font-size: 9px;
+  }
+
+  .secretBadge {
+    min-height: 39px;
+    padding-inline: 15px;
+    font-size: 12px;
+  }
+
+  .hero {
+    margin-top: 70px;
+  }
+
+  .hero h1 {
+    font-size: clamp(
+      31px,
+      9vw,
+      38px
+    );
+  }
+
+  .mobileCopy {
+    margin-top: 18px;
+    font-size: 17px;
+  }
+
+  .sessionGrid {
+    gap: 25px;
+    margin-top: 42px;
+  }
+
+  .matchCard {
+    border-radius: 21px;
+    padding:
+      35px
+      25px
+      26px;
+  }
+
+  .matchHeader {
+    gap: 10px;
+  }
+
+  .activeBadge,
+  .emptyBadge {
+    min-height: 29px;
+    padding-inline: 11px;
+    font-size: 12px;
+  }
+
+  .hiddenScore {
+    font-size: 17px;
+  }
+
+  .hiddenScore span {
+    font-size: 15px;
+  }
+
+  .matchContent {
+    margin-top: 26px;
+  }
+
+  .matchContent h2 {
+    font-size: 25px;
+  }
+
+  .matchContent p {
+    margin-top: 7px;
+    font-size: 17px;
+  }
+
+  .resumeButton {
+    min-height: 54px;
+    margin-top: 26px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+
+  .startSection {
+    gap: 17px;
+  }
+
+  .guestButton {
+    min-height: 56px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+
+  .footerActions {
+    gap: 15px;
+  }
+
+  .signInButton,
+  .createAccountButton {
+    min-height: 53px;
+    font-size: 17px;
+  }
+
+  .signInButton {
+    border-width: 2px;
+    border-radius: 10px;
+  }
+}
+
+@media (
+  min-width: 768px
+) and (
+  max-width: 1099px
+) {
+  .shell {
+    max-width: 900px;
+    padding:
+      72px
+      70px;
+  }
+
+  .headerActions {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .headerSignIn,
+  .headerCreateAccount {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 15px;
+  }
+
+  .headerCreateAccount {
+    border:
+      1px
+      solid
+      rgba(
+        255,
+        255,
+        255,
+        0.4
+      );
+    border-radius: 8px;
+    padding-inline: 18px;
+  }
+
+  .mobileArtwork {
+    display: none;
+  }
+
+  .tabletArtwork {
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+  }
+
+  .tabletArtwork .tile {
+    width: 67px;
+    height: 65px;
+    margin-inline: -1px;
+  }
+
+  .hero {
+    margin-top: 82px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    max-width: 600px;
+    margin-inline: auto;
+    font-size: 47px;
+  }
+
+  .mobileCopy {
+    max-width: 600px;
+    margin-inline: auto;
+    font-size: 18px;
+  }
+
+  .sessionGrid {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 0.86fr);
+    align-items: start;
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .sectionLabel {
+    display: block;
+    margin:
+      0
+      0
+      14px;
+    color: var(--muted-white);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .matchCard {
+    border-radius: 16px;
+    padding: 26px;
+  }
+
+  .startCopy {
+    display: block;
+    max-width: 240px;
+    margin:
+      35px
+      0
+      24px;
+    color: var(--muted-white);
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .footerActions {
+    display: none;
+  }
+}
+
+@media (min-width: 1100px) {
+  .shell {
+    max-width: 1280px;
+    padding:
+      72px
+      70px;
+  }
+
+  .header {
+    width: 48%;
+  }
+
+  .logo {
+    width: 42px;
+    height: 31px;
+  }
+
+  .logo strong {
+    font-size: 18px;
+  }
+
+  .brandName {
+    font-size: 21px;
+  }
+
+  .mobileArtwork,
+  .tabletArtwork {
+    display: none;
+  }
+
+  .desktopGrid {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(0, 1.1fr);
+    align-items: center;
+    gap: 110px;
+    margin-top: 58px;
+  }
+
+  .hero {
+    margin-top: 0;
+  }
+
+  .hero h1 {
+    max-width: 550px;
+    font-size: 58px;
+  }
+
+  .mobileCopy {
+    display: none;
+  }
+
+  .desktopCopy {
+    display: block;
+    max-width: 540px;
+    margin:
+      24px
+      0
+      0;
+    color: var(--muted-white);
+    font-size: 18px;
+    line-height: 1.65;
+  }
+
+  .sessionGrid {
+    display: block;
+    max-width: 520px;
+    margin-top: 54px;
+  }
+
+  .sectionLabel {
+    display: block;
+    margin:
+      0
+      0
+      12px;
+    color: var(--muted-white);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .matchCard {
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .matchContent {
+    margin-top: 20px;
+  }
+
+  .resumeButton {
+    min-height: 50px;
+    margin-top: 20px;
+  }
+
+  .startSection {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 34px;
+  }
+
+  .startSection .sectionLabel,
+  .startCopy {
+    display: none;
+  }
+
+  .guestButton {
+    width: 270px;
+    min-height: 55px;
+  }
+
+  .footerActions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .signInButton {
+    min-width: 90px;
+    min-height: 52px;
+    padding-inline: 15px;
+  }
+
+  .createAccountButton {
+    min-height: 52px;
+  }
+
+  .desktopArtwork {
+    display: block;
+  }
+
+  .boardLabels {
+    display: flex;
+    justify-content: space-between;
+    max-width: 440px;
+    margin:
+      0
+      auto
+      45px;
+    color: #e57300;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .boardLabels span:last-child {
+    color: #1498ff;
+  }
+
+  .desktopTiles {
+    display: grid;
+    grid-template-columns:
+      repeat(
+        3,
+        auto
+      );
+    justify-content: center;
+    gap:
+      18px
+      15px;
+  }
+
+  .desktopTiles .tile:nth-child(4) {
+    grid-column: 2;
+    margin-left: 45px;
+  }
+
+  .desktopTiles .tile:nth-child(5) {
+    grid-column: 3;
+    margin-left: -25px;
+  }
+
+  .opponentCard {
+    display: flex;
+    width: 370px;
+    align-items: center;
+    gap: 16px;
+    margin:
+      30px
+      auto
+      0;
+    border-radius: 16px;
+    background: var(--cream);
+    padding:
+      16px
+      20px;
+    color: var(--ink);
+  }
+
+  .lockCircle {
+    display: grid;
+    width: 49px;
+    height: 49px;
+    flex-shrink: 0;
+    place-items: center;
+    border-radius: 999px;
+    background: var(--green);
+  }
+
+  .opponentCard strong,
+  .opponentCard small {
+    display: block;
+  }
+
+  .opponentCard small {
+    margin-top: 4px;
+    color: var(--muted-ink);
+  }
+}

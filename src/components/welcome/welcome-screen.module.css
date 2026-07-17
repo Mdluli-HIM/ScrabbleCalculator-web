@@ -1,0 +1,691 @@
+.page {
+  --purple: #4a0250;
+  --cream: #eed99f;
+  --green: #123b30;
+  --orange: #c56204;
+  --ink: #18100d;
+  --muted-white: #c6bbb7;
+  --muted-ink: #75645b;
+  --outline: #794380;
+
+  min-height: 100svh;
+  overflow-x: hidden;
+  bacround: var(--purple);
+  color: #ffffff;
+}
+
+.tile {
+  position: relative;
+  display: inline-grid;
+  flex-shrink: 0;
+  place-items: center;
+  border: 0;
+  background: var(--cream);
+  color: var(--ink);
+  transform:
+    rotate(
+      var(--tile-rotation)
+    );
+}
+
+.tile strong {
+  font-weight: 800;
+  line-height: 1;
+}
+
+.tile small {
+  position: absolute;
+  right: 13%;
+  bottom: 10%;
+  line-height: 1;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+}
+
+.logoTiles {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.logo {
+  width: 53px;
+  height: 36px;
+  border-radius: 6px;
+}
+
+.logo strong {
+  font-size: 24px;
+}
+
+.logo small {
+  font-size: 8px;
+}
+
+.brandName {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.mobileView {
+  width: 100%;
+  max-width: 438px;
+  min-height: 100svh;
+  margin-inline: auto;
+  padding:
+    30px
+    24px;
+}
+
+.desktopView {
+  display: none;
+}
+
+.mobileArtwork {
+  position: relative;
+  width: 286px;
+  height: 82px;
+  margin:
+    64px
+    auto
+    0;
+}
+
+.mobileTileRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileWord {
+  width: 62px;
+  height: 58px;
+  margin-inline: -2px;
+  border-radius: 7px;
+}
+
+.mobileWord strong {
+  font-size: 29px;
+}
+
+.mobileWord small {
+  font-size: 9px;
+}
+
+.secretBadge {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-flex;
+  min-height: 39px;
+  align-items: center;
+  gap: 5px;
+  border-radius: 999px;
+  background: var(--green);
+  padding-inline: 15px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transform: rotate(-5deg);
+}
+
+.mobileHero {
+  margin-top: 56px;
+}
+
+.mobileHero h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.03;
+  letter-spacing: -0.048em;
+}
+
+.mobileHero p {
+  margin:
+    14px
+    0
+    0;
+  color: var(--muted-white);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.mobileActions {
+  display: grid;
+  gap: 27px;
+  margin-top: 29px;
+}
+
+.matchCard {
+  width: 100%;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.mobileMatchCard {
+  min-height: 265px;
+  border-radius: 22px;
+  padding:
+    37px
+    28px
+    27px;
+}
+
+.matchHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 11px;
+}
+
+.activeBadge,
+.emptyBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.activeBadge {
+  background: var(--green);
+  color: #ffffff;
+}
+
+.emptyBadge {
+  background: #dfc998;
+  color: var(--ink);
+}
+
+.mobileMatchCard .activeBadge,
+.mobileMatchCard .emptyBadge {
+  min-height: 29px;
+  padding-inline: 11px;
+  font-size: 12px;
+}
+
+.hiddenScore {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--orange);
+  line-height: 1;
+}
+
+.mobileMatchCard .hiddenScore {
+  font-size: 17px;
+}
+
+.mobileMatchCard .hiddenScore span {
+  font-size: 14px;
+}
+
+.matchInformation {
+  margin-top: 28px;
+}
+
+.matchInformation h2 {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.matchInformation p {
+  margin:
+    8px
+    0
+    0;
+  color: var(--muted-ink);
+  line-height: 1.35;
+}
+
+.mobileMatchCard .matchInformation h2 {
+  font-size: 25px;
+}
+
+.mobileMatchCard .matchInformation p {
+  font-size: 17px;
+}
+
+.resumeButton {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: var(--green);
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.mobileMatchCard .resumeButton {
+  min-height: 57px;
+  margin-top: 24px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.mobileGuestButton {
+  display: inline-flex;
+  width: 100%;
+  min-height: 60px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 11px;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.mobileAccountActions {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+  gap: 16px;
+  margin-top: -10px;
+}
+
+.signInButton,
+.createAccountButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.mobileAccountActions .signInButton,
+.mobileAccountActions .createAccountButton {
+  min-height: 57px;
+  font-size: 17px;
+}
+
+.signInButton {
+  border:
+    2px
+    solid
+    var(--outline);
+  border-radius: 10px;
+}
+
+.createAccountButton {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.spinner {
+  width: 17px;
+  height: 17px;
+  animation:
+    spin
+    800ms
+    linear
+    infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 380px) {
+  .mobileView {
+    padding-inline: 17px;
+  }
+
+  .logo {
+    width: 49px;
+    height: 35px;
+  }
+
+  .logo strong {
+    font-size: 21px;
+  }
+
+  .brandName {
+    font-size: 21px;
+  }
+
+  .mobileHero h1 {
+    font-size: 31px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .mobileView {
+    display: none;
+  }
+
+  .desktopView {
+    display: grid;
+    width: 100%;
+    max-width: 1440px;
+    min-height: 100vh;
+    grid-template-columns:
+      minmax(420px, 520px)
+      minmax(460px, 1fr);
+    align-items: start;
+    gap:
+      clamp(
+        100px,
+        9vw,
+        170px
+      );
+    margin-inline: auto;
+    padding:
+      78px
+      clamp(
+        54px,
+        4.7vw,
+        72px
+      )
+      60px;
+  }
+
+  .desktopLeft {
+    min-width: 0;
+  }
+
+  .desktopView .brand {
+    gap: 8px;
+  }
+
+  .desktopView .logoTiles {
+    gap: 3px;
+  }
+
+  .desktopView .logo {
+    width: 34px;
+    height: 24px;
+    border-radius: 4px;
+  }
+
+  .desktopView .logo strong {
+    font-size: 14px;
+  }
+
+  .desktopView .logo small {
+    font-size: 6px;
+  }
+
+  .desktopView .brandName {
+    font-size: 16px;
+    letter-spacing: -0.025em;
+  }
+
+  .desktopHero {
+    margin-top: 48px;
+  }
+
+  .desktopHero h1 {
+    max-width: 500px;
+    margin: 0;
+    color: #ffffff;
+    font-size:
+      clamp(
+        42px,
+        3.7vw,
+        56px
+      );
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+  }
+
+  .desktopHero p {
+    max-width: 500px;
+    margin:
+      25px
+      0
+      0;
+    color: var(--muted-white);
+    font-size: 17px;
+    line-height: 1.62;
+  }
+
+  .savedSection {
+    max-width: 500px;
+    margin-top: 42px;
+  }
+
+  .savedLabel {
+    margin:
+      0
+      0
+      10px;
+    color: var(--muted-white);
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .desktopMatchCard {
+    min-height: 190px;
+    border-radius: 16px;
+    padding:
+      27px
+      22px
+      22px;
+  }
+
+  .desktopMatchCard .matchHeader {
+    gap: 8px;
+  }
+
+  .desktopMatchCard .activeBadge,
+  .desktopMatchCard .emptyBadge {
+    min-height: 21px;
+    padding-inline: 8px;
+    border-radius: 3px;
+    font-size: 9px;
+  }
+
+  .desktopMatchCard .hiddenScore {
+    font-size: 12px;
+  }
+
+  .desktopMatchCard .hiddenScore span {
+    font-size: 10px;
+  }
+
+  .desktopMatchCard .matchInformation {
+    margin-top: 19px;
+  }
+
+  .desktopMatchCard .matchInformation h2 {
+    font-size: 19px;
+  }
+
+  .desktopMatchCard .matchInformation p {
+    margin-top: 5px;
+    font-size: 13px;
+  }
+
+  .desktopMatchCard .resumeButton {
+    min-height: 43px;
+    margin-top: 20px;
+    border-radius: 6px;
+    font-size: 12px;
+  }
+
+  .desktopActionRow {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 38px;
+  }
+
+  .desktopGuestButton {
+    display: inline-flex;
+    width: 285px;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .desktopAccountActions {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+  }
+
+  .desktopAccountActions .signInButton,
+  .desktopAccountActions .createAccountButton {
+    min-height: 42px;
+    font-size: 13px;
+  }
+
+  .desktopAccountActions .signInButton {
+    min-width: 78px;
+    border-width: 1px;
+    border-radius: 6px;
+    padding-inline: 14px;
+  }
+
+  .desktopAccountActions .createAccountButton {
+    white-space: nowrap;
+  }
+
+  .desktopArtwork {
+    display: flex;
+    min-height: 570px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+  }
+
+  .premiumLabels {
+    display: flex;
+    width: 340px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 42px;
+    color: var(--orange);
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .premiumLabels span:last-child {
+    color: #168be7;
+  }
+
+  .scoreTiles {
+    display: grid;
+    grid-template-columns:
+      repeat(
+        3,
+        96px
+      );
+    justify-content: center;
+    gap:
+      14px
+      21px;
+  }
+
+  .desktopScore {
+    width: 96px;
+    height: 90px;
+    border-radius: 8px;
+  }
+
+  .desktopScore strong {
+    font-size: 36px;
+  }
+
+  .desktopScore small {
+    font-size: 10px;
+  }
+
+  .scoreTiles .desktopScore:nth-child(4) {
+    grid-column: 2;
+  }
+
+  .scoreTiles .desktopScore:nth-child(5) {
+    grid-column: 3;
+  }
+
+  .opponentCard {
+    display: flex;
+    width: 360px;
+    min-height: 82px;
+    align-items: center;
+    gap: 16px;
+    margin-top: 25px;
+    border-radius: 16px;
+    background: var(--cream);
+    padding:
+      16px
+      20px;
+    color: var(--ink);
+    box-shadow:
+      0
+      18px
+      35px
+      rgba(
+        24,
+        16,
+        13,
+        0.18
+      );
+  }
+
+  .opponentLock {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    place-items: center;
+    border-radius: 999px;
+    background: var(--green);
+    color: #ffffff;
+  }
+
+  .opponentLock svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .opponentText strong,
+  .opponentText small {
+    display: block;
+  }
+
+  .opponentText strong {
+    font-size: 16px;
+  }
+
+  .opponentText small {
+    margin-top: 4px;
+    color: var(--muted-ink);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}

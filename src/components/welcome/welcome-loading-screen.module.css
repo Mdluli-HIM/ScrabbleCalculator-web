@@ -1,0 +1,212 @@
+.page {
+  min-height: 100svh;
+  overflow-x: hidden;
+  background: #611262;
+  color: #ffffff;
+}
+
+.frame {
+  width: 100%;
+  max-width: 390px;
+  min-height: 100svh;
+  margin-inline: auto;
+  padding: 52px 24px 34px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoTiles {
+  display: flex;
+  gap: 3px;
+}
+
+.logoTile {
+  position: relative;
+  display: grid;
+  width: 42px;
+  height: 28px;
+  place-items: center;
+  border-radius: 4px;
+  background: #f5e0b1;
+  color: #21140f;
+}
+
+.logoTile strong {
+  font-size: 16px;
+}
+
+.logoTile small {
+  position: absolute;
+  right: 14%;
+  bottom: 10%;
+  font-size: 8px;
+}
+
+.brandName {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.artwork {
+  position: relative;
+  display: flex;
+  height: 130px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 58px;
+}
+
+.tileRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tile {
+  position: relative;
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border-radius: 7px;
+  background: #f5e0b1;
+  color: #21140f;
+  transform: rotate(var(--rotation));
+}
+
+.tile strong {
+  font-size: 25px;
+}
+
+.tile small {
+  position: absolute;
+  right: 13%;
+  bottom: 10%;
+  font-size: 9px;
+}
+
+.badge {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  min-height: 30px;
+  border-radius: 8px;
+  background: #014a3f;
+  padding: 7px 10px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.hero {
+  margin-top: 42px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.hero p {
+  margin: 8px 0 0;
+  color: #d2c7c4;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.loadingCard {
+  display: grid;
+  gap: 16px;
+  margin-top: 30px;
+  border-radius: 16px;
+  background: #f5e0b1;
+  padding: 20px;
+}
+
+.loadingButton {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: #014a3f;
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #ffffff;
+  animation: pulse 900ms ease-in-out infinite;
+}
+
+.loadingCard p {
+  margin: 0;
+  color: #6b5854;
+  font-size: 13px;
+  text-align: center;
+}
+
+.disabledActions {
+  display: grid;
+  gap: 12px;
+  margin-top: 30px;
+  opacity: 0.4;
+}
+
+.disabledActions button {
+  min-height: 48px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: transparent;
+  color: #ffffff;
+  cursor: not-allowed;
+}
+
+.disabledActions .createAccount {
+  min-height: 40px;
+  border: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 768px) {
+  .frame {
+    max-width: 560px;
+    padding: 72px 48px;
+  }
+
+  .brand {
+    justify-content: center;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+}
