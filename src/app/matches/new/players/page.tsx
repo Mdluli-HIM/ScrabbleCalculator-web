@@ -1,16 +1,16 @@
 import {
-  MatchDetailsScreen,
-} from "@/components/match-setup/match-details-screen";
+  PlayersSetupScreen,
+} from "@/components/match-setup/players-setup-screen";
 
-interface NewMatchPageProps {
+interface PlayersSetupPageProps {
   searchParams: Promise<{
     state?: string | string[];
   }>;
 }
 
-export default async function NewMatchPage({
+export default async function PlayersSetupPage({
   searchParams,
-}: NewMatchPageProps) {
+}: PlayersSetupPageProps) {
   const params =
     await searchParams;
 
@@ -22,11 +22,11 @@ export default async function NewMatchPage({
       : params.state;
 
   return (
-    <MatchDetailsScreen
-      initialFilled={
-        state === "filled"
+    <PlayersSetupScreen
+      previewValid={
+        state === "valid"
       }
-      showValidationError={
+      previewError={
         state === "error"
       }
     />

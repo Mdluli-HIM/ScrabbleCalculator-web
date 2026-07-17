@@ -1,0 +1,1025 @@
+.page,
+.loadingPage {
+  --purple: #4a0250;
+  --cream: #eed99f;
+  --green: #123b30;
+  --ink: #21140f;
+  --muted: #c6bbb7;
+  --cream-muted: #8c7b5b;
+  --track: #794380;
+  --error: #b52e2e;
+
+  width: 100%;
+  min-height: 100svh;
+  background: var(--purple);
+  color: #ffffff;
+}
+
+.loadingPage {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 12px;
+}
+
+.loadingPage p {
+  margin: 0;
+}
+
+.shell {
+  width: 100%;
+  max-width: 564px;
+  min-height: 100svh;
+  margin-inline: auto;
+  padding:
+    53px
+    31px
+    52px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.backLink svg {
+  width: 20px;
+  height: 20px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.brandTiles {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.logoTile {
+  position: relative;
+  display: grid;
+  width: 42px;
+  height: 40px;
+  place-items: center;
+  border-radius: 5px;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.logoTile strong {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.logoTile small {
+  position: absolute;
+  right: 12%;
+  bottom: 9%;
+  font-size: 8px;
+}
+
+.brandName {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.progressSection {
+  margin-top: 77px;
+}
+
+.progressSection > span {
+  display: block;
+  color: var(--cream);
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 9px;
+  margin-top: 14px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--track);
+}
+
+.progressValue {
+  display: block;
+  width: 66.666%;
+  height: 100%;
+  background: var(--green);
+}
+
+.introduction {
+  margin-top: 38px;
+}
+
+.introduction h1 {
+  margin: 0;
+  font-size: 41px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+
+.introduction p {
+  margin: 15px 0 0;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.form {
+  margin-top: 34px;
+}
+
+.playerList {
+  display: grid;
+  gap: 16px;
+}
+
+.playerField {
+  display: grid;
+  gap: 7px;
+}
+
+.playerCard {
+  display: grid;
+  grid-template-columns:
+    46px
+    minmax(0, 1fr)
+    auto
+    auto;
+  min-height: 88px;
+  align-items: center;
+  gap: 13px;
+  border: 2px solid transparent;
+  border-radius: 19px;
+  background: var(--cream);
+  padding:
+    13px
+    21px;
+  color: var(--ink);
+}
+
+.playerCardError {
+  border-color: var(--error);
+}
+
+.playerNumber {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--green);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.playerCard input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.playerCard input::placeholder {
+  color: #a99670;
+  opacity: 1;
+}
+
+.firstBadge {
+  border-radius: 5px;
+  background: var(--green);
+  padding:
+    6px
+    9px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.characterCount {
+  color: var(--cream-muted);
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.clearButton {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(18, 59, 48, 0.1);
+  color: var(--green);
+}
+
+.clearButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+.fieldError,
+.requestError {
+  margin: 0;
+  color: #ffd1d1;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.orderCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-top: 35px;
+  border-radius: 19px;
+  background: var(--green);
+  padding:
+    23px
+    24px;
+}
+
+.infoIcon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.infoIcon svg {
+  width: 23px;
+  height: 23px;
+}
+
+.orderCard > span:last-child {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.orderCard strong {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.orderCard small {
+  color: #c8dad5;
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.actions {
+  display: grid;
+  gap: 18px;
+  margin-top: 46px;
+  padding-bottom:
+    env(safe-area-inset-bottom);
+}
+
+.continueButton {
+  display: inline-flex;
+  width: 100%;
+  min-height: 60px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--green);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.continueButton:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.detailsLink {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.requestError {
+  text-align: center;
+}
+
+.spinner {
+  width: 19px;
+  height: 19px;
+  animation:
+    playerSpin
+    800ms
+    linear
+    infinite;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@keyframes playerSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 470px) {
+  .shell {
+    padding:
+      30px
+      22px
+      38px;
+  }
+
+  .backLink {
+    font-size: 16px;
+  }
+
+  .logoTile {
+    width: 39px;
+    height: 36px;
+  }
+
+  .brandName {
+    font-size: 17px;
+  }
+
+  .progressSection {
+    margin-top: 58px;
+  }
+
+  .introduction h1 {
+    font-size: 34px;
+  }
+
+  .introduction p {
+    font-size: 17px;
+  }
+
+  .playerCard {
+    grid-template-columns:
+      42px
+      minmax(0, 1fr)
+      auto;
+    gap: 10px;
+    min-height: 82px;
+    padding:
+      12px
+      17px;
+  }
+
+  .playerCard input {
+    font-size: 18px;
+  }
+
+  .firstBadge {
+    grid-column: 3;
+  }
+
+  .clearButton {
+    display: none;
+  }
+
+  .characterCount {
+    grid-column: 3;
+    font-size: 14px;
+  }
+
+  .playerCard:first-child
+  .characterCount {
+    display: none;
+  }
+
+  .orderCard {
+    padding:
+      20px
+      21px;
+  }
+
+  .orderCard strong {
+    font-size: 18px;
+  }
+
+  .orderCard small {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 370px) {
+  .shell {
+    padding-inline: 16px;
+  }
+
+  .brandName {
+    display: none;
+  }
+
+  .introduction h1 {
+    font-size: 30px;
+  }
+
+  .playerCard {
+    padding-inline: 13px;
+  }
+
+  .firstBadge {
+    font-size: 9px;
+  }
+}
+
+@media (min-width: 768px) {
+  .shell {
+    max-width: 760px;
+    padding:
+      56px
+      58px
+      62px;
+  }
+
+  .introduction h1 {
+    font-size: 46px;
+  }
+
+  .actions {
+    max-width: 520px;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 1100px) {
+  .shell {
+    max-width: 900px;
+    padding:
+      64px
+      72px
+      70px;
+  }
+
+  .progressSection {
+    margin-top: 64px;
+  }
+
+  .playerCard {
+    min-height: 92px;
+  }
+
+  .orderCard {
+    max-width: 100%;
+  }
+}
+
+/* Figma desktop Screen 2 */
+
+.backLong,
+.desktopCancelLabel,
+.desktopIntroSuffix,
+.previewCard {
+  display: none;
+}
+
+.desktopGrid {
+  margin-top: 58px;
+}
+
+.formColumn {
+  min-width: 0;
+}
+
+@media (min-width: 1100px) {
+  .page,
+  .loadingPage {
+    --purple: #4a0250;
+  }
+
+  .shell {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    min-height: 100svh;
+    margin: 0;
+    padding:
+      82px
+      65px
+      80px;
+  }
+
+  .header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .backLink {
+    gap: 9px;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .backLink svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .backShort {
+    display: none;
+  }
+
+  .backLong {
+    display: inline;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brandTiles {
+    gap: 4px;
+  }
+
+  .logoTile {
+    width: 44px;
+    height: 29px;
+    border-radius: 4px;
+  }
+
+  .logoTile strong {
+    font-size: 16px;
+  }
+
+  .logoTile small {
+    font-size: 6px;
+  }
+
+  .brandName {
+    font-size: 16px;
+  }
+
+  .desktopGrid {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 656px)
+      minmax(360px, 430px);
+    align-items: start;
+    justify-content: start;
+    gap:
+      clamp(
+        64px,
+        5.2vw,
+        80px
+      );
+    width: 100%;
+    margin-top: 85px;
+  }
+
+  .formColumn {
+    width: 100%;
+    max-width: 656px;
+  }
+
+  .progressSection {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .progressSection > span {
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  .progressTrack {
+    width: 100%;
+    height: 7px;
+    margin-top: 12px;
+  }
+
+  .introduction {
+    margin-top: 25px;
+  }
+
+  .introduction h1 {
+    font-size: 42px;
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+  }
+
+  .introduction p {
+    margin-top: 13px;
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .desktopIntroSuffix {
+    display: inline;
+  }
+
+  .form {
+    margin-top: 35px;
+  }
+
+  .playerList {
+    display: grid;
+    gap: 16px;
+  }
+
+  .playerCard {
+    grid-template-columns:
+      32px
+      minmax(0, 1fr)
+      auto
+      auto
+      auto;
+    width: 100%;
+    min-height: 62px;
+    gap: 12px;
+    border-radius: 14px;
+    padding:
+      10px
+      16px;
+  }
+
+  .playerNumber {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .playerCard input {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  .firstBadge {
+    border-radius: 4px;
+    padding:
+      5px
+      8px;
+    font-size: 9px;
+  }
+
+  .characterCount {
+    font-size: 13px;
+  }
+
+  .clearButton {
+    width: 24px;
+    height: 24px;
+  }
+
+  .clearButton svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .fieldError {
+    padding-left: 46px;
+    font-size: 13px;
+  }
+
+  .orderCard {
+    width: 100%;
+    min-height: 73px;
+    align-items: center;
+    gap: 14px;
+    margin-top: 34px;
+    border-radius: 13px;
+    padding:
+      16px
+      18px;
+  }
+
+  .infoIcon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .infoIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .orderCard strong {
+    font-size: 15px;
+  }
+
+  .orderCard small {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .actions {
+    width: 100%;
+    max-width: 360px;
+    justify-items: start;
+    margin:
+      34px
+      0
+      0;
+  }
+
+  .continueButton {
+    width: 100%;
+    min-height: 50px;
+    border-radius: 9px;
+    font-size: 15px;
+  }
+
+  .detailsLink {
+    width: fit-content;
+    min-height: 30px;
+    justify-content: flex-start;
+    font-size: 15px;
+  }
+
+  .mobileCancelLabel {
+    display: none;
+  }
+
+  .desktopCancelLabel {
+    display: inline;
+  }
+
+  .requestError {
+    text-align: left;
+  }
+
+  .previewCard {
+    display: block;
+    align-self: start;
+    box-sizing: border-box;
+    width: 430px;
+    min-height: 438px;
+    border-radius: 27px;
+    background: var(--cream);
+    padding:
+      43px
+      41px;
+    color: var(--ink);
+  }
+
+  .previewEyebrow {
+    color: var(--cream-muted);
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .previewCard h2 {
+    margin:
+      18px
+      0
+      0;
+    color: var(--ink);
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+  }
+
+  .previewDivider {
+    width: 100%;
+    height: 1px;
+    margin:
+      34px
+      0;
+    background: #d7c58f;
+  }
+
+  .previewPlayerCount {
+    display: block;
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .previewPlayers {
+    display: grid;
+    gap: 15px;
+    margin:
+      22px
+      0
+      0;
+    padding-left: 20px;
+  }
+
+  .previewPlayers li {
+    position: relative;
+    min-height: 18px;
+    padding-right: 90px;
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .previewFirstBadge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 4px;
+    background: var(--green);
+    padding:
+      5px
+      8px;
+    color: #ffffff;
+    font-size: 8px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .previewSetting {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .previewSetting +
+  .previewSetting {
+    margin-top: 16px;
+  }
+
+  .previewSetting svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+    color: var(--green);
+    stroke-width: 2.5;
+  }
+}
+
+@media (
+  min-width: 1100px
+) and (
+  max-width: 1279px
+) {
+  .shell {
+    padding:
+      64px
+      48px
+      70px;
+  }
+
+  .desktopGrid {
+    grid-template-columns:
+      minmax(0, 1fr)
+      360px;
+    gap: 48px;
+    margin-top: 72px;
+  }
+
+  .previewCard {
+    width: 360px;
+    padding:
+      36px
+      32px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .shell {
+    padding-left:
+      clamp(
+        65px,
+        5vw,
+        96px
+      );
+    padding-right:
+      clamp(
+        65px,
+        5vw,
+        96px
+      );
+  }
+}
+
+/* Exact Add Players palette */
+
+.page,
+.loadingPage {
+  --purple: #4a0250;
+  --cream: #eed99f;
+  --green: #123b30;
+  --ink: #21140f;
+  --muted: #c6bbb7;
+  --cream-muted: #8c7b5b;
+  --track: #794380;
+  --error: #f04f3d;
+
+  background-color: #4a0250;
+}
+
+.progressTrack {
+  background-color: #794380;
+}
+
+.progressValue,
+.playerNumber,
+.firstBadge,
+.orderCard,
+.continueButton,
+.previewFirstBadge {
+  background-color: #123b30;
+}
+
+.playerCard,
+.previewCard {
+  background-color: #eed99f;
+}
+
+.introduction p,
+.detailsLink {
+  color: #c6bbb7;
+}
+
+@media (min-width: 1100px) {
+  .page,
+  .loadingPage {
+    --purple: #4a0250;
+    background-color: #4a0250;
+  }
+}
+
+/* Add Players error state */
+
+.playerCardError {
+  border-color: #f04f3d;
+  background-color: #fff2ee;
+  box-shadow:
+    0
+    0
+    0
+    1px
+    rgba(
+      240,
+      79,
+      61,
+      0.14
+    );
+}
+
+.playerCardError input {
+  color: #21140f;
+}
+
+.fieldError {
+  color: #efb9b6;
+}
+
+@media (max-width: 1099px) {
+  .fieldError {
+    padding-left: 0;
+  }
+}

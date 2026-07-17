@@ -6,23 +6,18 @@ const backendApiUrl =
   process.env.BACKEND_API_URL ??
   "http://localhost:5050";
 
-const nextConfig:
-  NextConfig = {
-    reactStrictMode: true,
+const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      {
+        source:
+          "/api/v1/:path*",
 
-    devIndicators: false,
-
-    async rewrites() {
-      return [
-        {
-          source:
-            "/backend/:path*",
-
-          destination:
-            `${backendApiUrl}/api/v1/:path*`,
-        },
-      ];
-    },
-  };
+        destination:
+          `${backendApiUrl}/api/v1/:path*`,
+      },
+    ];
+  },
+};
 
 export default nextConfig;

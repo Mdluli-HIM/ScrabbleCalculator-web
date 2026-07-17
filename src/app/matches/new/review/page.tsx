@@ -1,16 +1,16 @@
 import {
-  MatchDetailsScreen,
-} from "@/components/match-setup/match-details-screen";
+  ReviewMatchScreen,
+} from "@/components/match-setup/review-match-screen";
 
-interface NewMatchPageProps {
+interface ReviewSetupPageProps {
   searchParams: Promise<{
     state?: string | string[];
   }>;
 }
 
-export default async function NewMatchPage({
+export default async function ReviewSetupPage({
   searchParams,
-}: NewMatchPageProps) {
+}: ReviewSetupPageProps) {
   const params =
     await searchParams;
 
@@ -22,11 +22,11 @@ export default async function NewMatchPage({
       : params.state;
 
   return (
-    <MatchDetailsScreen
-      initialFilled={
-        state === "filled"
+    <ReviewMatchScreen
+      previewLoading={
+        state === "loading"
       }
-      showValidationError={
+      previewError={
         state === "error"
       }
     />
