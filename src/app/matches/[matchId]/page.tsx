@@ -1,6 +1,6 @@
 import {
-  PlaceholderScreen,
-} from "@/components/system/placeholder-screen";
+  ActiveMatchScreen,
+} from "@/components/active-match/active-match-screen";
 
 interface MatchPageProps {
   params: Promise<{
@@ -16,10 +16,8 @@ export default async function MatchPage({
   } = await params;
 
   return (
-    <PlaceholderScreen
-      eyebrow={`Saved match · ${matchId.slice(0, 8)}`}
-      title="Your match was found."
-      description="The saved match belongs to this browser session. The full active match interface will be designed and connected in its dedicated frontend sprint."
+    <ActiveMatchScreen
+      matchId={matchId}
     />
   );
 }

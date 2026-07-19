@@ -1,0 +1,987 @@
+.page,
+.statePage {
+  --purple: #4a0250;
+  --cream: #eed99f;
+  --green: #005f50;
+  --ink: #241711;
+  --muted: #76665d;
+  --line: #d7c38b;
+  --white: #ffffff;
+
+  width: 100%;
+  min-height: 100svh;
+  background: var(--purple);
+  color: var(--white);
+}
+
+.statePage {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
+.statePage h1,
+.statePage p {
+  margin: 0;
+}
+
+.statePage p {
+  max-width: 430px;
+  color: #c6bbb7;
+  line-height: 1.5;
+}
+
+.stateButton {
+  border-radius: 9px;
+  background: var(--cream);
+  padding: 14px 18px;
+  color: var(--green);
+  font-weight: 800;
+}
+
+.layout {
+  min-height: 100svh;
+}
+
+.sidebar {
+  display: none;
+}
+
+.workspace {
+  width: 100%;
+  max-width: 520px;
+  min-height: 100svh;
+  margin-inline: auto;
+  padding:
+    13px
+    19px
+    15px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.backLink svg {
+  width: 17px;
+  height: 17px;
+}
+
+.desktopBack,
+.desktopStatus,
+.desktopBonusTitle,
+.desktopBingo,
+.desktopClear,
+.desktopEndLabel,
+.desktopPassButton {
+  display: none;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.brandTiles {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.logoTile {
+  position: relative;
+  display: grid;
+  width: 39px;
+  height: 29px;
+  place-items: center;
+  border-radius: 4px;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.logoTile strong {
+  font-size: 17px;
+  line-height: 1;
+}
+
+.logoTile small {
+  position: absolute;
+  right: 9px;
+  bottom: 4px;
+  font-size: 6px;
+}
+
+.matchHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.matchHeader h1 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.matchHeader p {
+  margin: 5px 0 0;
+  color: #c6bbb7;
+  font-size: 13px;
+}
+
+.matchHeader p span {
+  display: none;
+}
+
+.statusBadge {
+  border-radius: 999px;
+  background: var(--cream);
+  padding: 6px 11px;
+  color: var(--ink);
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.currentTurnCard,
+.inputCard,
+.bonusCard,
+.mobileStandingsCard {
+  border-radius: 18px;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.currentTurnCard {
+  margin-top: 20px;
+  padding: 21px 20px 20px;
+}
+
+.currentTurnTop,
+.cardLabelRow,
+.mobileStandingsTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.currentTurnTop {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.currentTurnTop strong {
+  color: var(--ink);
+}
+
+.currentTurnCard h2 {
+  margin: 13px 0 0;
+  font-size: 29px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.currentTurnCard p {
+  margin: 11px 0 0;
+  font-size: 15px;
+}
+
+.currentTurnCard p span {
+  display: none;
+}
+
+.successBanner {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+  border-radius: 13px;
+  background: var(--green);
+  padding: 14px;
+}
+
+.successIcon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.successIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.successBanner > span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.successBanner small {
+  color: #d1e0dc;
+}
+
+.inputCard {
+  margin-top: 16px;
+  padding: 19px 16px 17px;
+}
+
+.cardLabelRow {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.cardLabelRow span span {
+  display: none;
+}
+
+.inputShell {
+  position: relative;
+  margin-top: 12px;
+}
+
+.inputShell input {
+  width: 100%;
+  height: 51px;
+  border: 1px solid #e3e4df;
+  border-radius: 8px;
+  outline: none;
+  background: #ffffff;
+  padding: 0 65px 0 14px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.inputShell input::placeholder {
+  color: #a79b95;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.inputShell input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(0, 95, 80, 0.12);
+}
+
+.inputShell button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  min-height: 29px;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 4px;
+  background: #edf1ee;
+  padding-inline: 8px;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.inputShell button:disabled {
+  opacity: 0.45;
+}
+
+.letterTiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.letterTiles button {
+  position: relative;
+  display: grid;
+  width: 39px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.letterTiles strong {
+  font-size: 17px;
+}
+
+.letterTiles small {
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  font-size: 7px;
+}
+
+.letterTiles .selectedTile {
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px rgba(0, 95, 80, 0.15);
+}
+
+.bonusCard {
+  margin-top: 16px;
+  padding: 19px 16px 15px;
+}
+
+.bonusTitle,
+.summaryHeading,
+.sidebarTitle {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.bonusButtons {
+  display: grid;
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+  gap: 5px;
+  margin-top: 18px;
+}
+
+.bonusButtons button {
+  min-height: 35px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.bonusButtons button small {
+  display: none;
+}
+
+.bonusButtons button:disabled {
+  opacity: 0.42;
+}
+
+.bonusButtons .activeBonus {
+  background: var(--green);
+  color: #ffffff;
+}
+
+.bingoRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.bingoRow strong {
+  font-size: 14px;
+}
+
+.bingoRow small {
+  display: none;
+}
+
+.toggle {
+  width: 41px;
+  height: 22px;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 999px;
+  background: #d2cba8;
+  padding: 3px;
+}
+
+.toggle span {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #ffffff;
+  transition: transform 160ms ease;
+}
+
+.toggleActive {
+  background: var(--green);
+}
+
+.toggleActive span {
+  transform: translateX(19px);
+}
+
+.scoreRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 19px 4px 15px;
+}
+
+.scoreRow > span {
+  font-size: 14px;
+}
+
+.scoreRow > span span {
+  display: none;
+}
+
+.scoreRow strong {
+  color: var(--cream);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.mobileStandingsCard {
+  padding: 18px 16px 11px;
+}
+
+.mobileStandingsTitle {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.mobileStandingsTitle svg {
+  width: 16px;
+  height: 16px;
+}
+
+.mobileStandingsList,
+.desktopStandings {
+  margin: 11px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobileStandingsList li,
+.desktopStandings li {
+  display: grid;
+  grid-template-columns:
+    27px
+    minmax(0, 1fr)
+    auto;
+  min-height: 48px;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.mobileStandingsList li:first-child,
+.desktopStandings li:first-child {
+  border-top: 0;
+}
+
+.position {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.currentPosition {
+  background: var(--green);
+  color: #ffffff;
+}
+
+.mobileStandingsList strong,
+.desktopStandings strong {
+  font-size: 14px;
+}
+
+.playingBadge {
+  border-radius: 999px;
+  background: var(--green);
+  padding: 6px 9px;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.concealedScore {
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.errorMessage,
+.noticeMessage {
+  margin: 13px 0 0;
+  border-radius: 9px;
+  padding: 11px 12px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.errorMessage {
+  background: #f7d5cf;
+  color: #8b251d;
+}
+
+.noticeMessage {
+  background: var(--cream);
+  color: var(--muted);
+}
+
+.primaryActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 29px;
+}
+
+.validateButton {
+  display: inline-flex;
+  width: 100%;
+  min-height: 49px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--green);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.validateButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.46;
+}
+
+.secondaryActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 13px;
+}
+
+.secondaryActions button,
+.desktopPassButton {
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.secondaryActions button:nth-child(2),
+.secondaryActions button:nth-child(3) {
+  color: #af7aae;
+}
+
+.spinner {
+  width: 19px;
+  height: 19px;
+  animation:
+    activeSpin
+    800ms
+    linear
+    infinite;
+}
+
+@keyframes activeSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 370px) {
+  .workspace {
+    padding-inline: 13px;
+  }
+
+  .brand > span:last-child {
+    display: none;
+  }
+
+  .currentTurnCard h2 {
+    font-size: 26px;
+  }
+
+  .secondaryActions {
+    gap: 11px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .layout {
+    display: grid;
+    grid-template-columns:
+      46%
+      54%;
+  }
+
+  .sidebar {
+    display: block;
+    border-right:
+      1px
+      solid
+      rgba(
+        255,
+        255,
+        255,
+        0.06
+      );
+    padding:
+      35px
+      27px
+      70px;
+  }
+
+  .sidebarCard {
+    max-width: 410px;
+    border-radius: 18px;
+    background: var(--cream);
+    padding:
+      21px
+      18px;
+    color: var(--ink);
+  }
+
+  .sidebarCard + .sidebarCard {
+    margin-top: 17px;
+  }
+
+  .sidebarTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sidebarTitle svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .sidebarCard h2 {
+    margin: 8px 0 0;
+    font-size: 18px;
+  }
+
+  .desktopStandings {
+    margin-top: 10px;
+  }
+
+  .desktopStandings li {
+    min-height: 49px;
+  }
+
+  .configurationRow {
+    display: grid;
+    grid-template-columns:
+      32px
+      minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    min-height: 53px;
+    border-bottom:
+      1px
+      solid
+      var(--line);
+  }
+
+  .summaryIcon {
+    display: grid;
+    width: 25px;
+    height: 25px;
+    place-items: center;
+    border-radius: 999px;
+    background: var(--green);
+    color: #ffffff;
+  }
+
+  .summaryIcon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .configurationRow > span:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .configurationRow small {
+    color: var(--muted);
+    font-size: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .configurationRow strong {
+    font-size: 11px;
+  }
+
+  .configurationNote {
+    margin: 13px 0 0;
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.45;
+  }
+
+  .workspace {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding:
+      34px
+      27px
+      70px;
+  }
+
+  .mobileBack,
+  .mobileStatus,
+  .mobileBonusTitle,
+  .mobileBingo,
+  .mobileClear,
+  .mobileEndLabel,
+  .mobilePassButton,
+  .mobileStandingsCard {
+    display: none;
+  }
+
+  .desktopBack,
+  .desktopStatus,
+  .desktopBonusTitle,
+  .desktopBingo,
+  .desktopClear,
+  .desktopEndLabel {
+    display: inline;
+  }
+
+  .header {
+    align-items: center;
+  }
+
+  .backLink {
+    font-size: 11px;
+  }
+
+  .brand {
+    font-size: 13px;
+  }
+
+  .logoTile {
+    width: 31px;
+    height: 24px;
+  }
+
+  .logoTile strong {
+    font-size: 14px;
+  }
+
+  .matchHeader {
+    margin-top: 29px;
+  }
+
+  .matchHeader h1 {
+    font-size: 27px;
+  }
+
+  .matchHeader p {
+    font-size: 12px;
+  }
+
+  .matchHeader p span {
+    display: inline;
+  }
+
+  .statusBadge {
+    padding:
+      6px
+      12px;
+    font-size: 8px;
+  }
+
+  .currentTurnCard {
+    margin-top: 21px;
+    padding:
+      19px
+      18px;
+  }
+
+  .currentTurnTop {
+    font-size: 8px;
+  }
+
+  .currentTurnCard h2 {
+    margin-top: 13px;
+    font-size: 29px;
+  }
+
+  .currentTurnCard p {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  .currentTurnCard p span {
+    display: inline;
+  }
+
+  .inputCard,
+  .bonusCard {
+    margin-top: 16px;
+    padding:
+      16px
+      14px;
+    border-radius: 13px;
+  }
+
+  .cardLabelRow,
+  .bonusTitle {
+    font-size: 9px;
+  }
+
+  .cardLabelRow span span {
+    display: inline;
+  }
+
+  .inputShell {
+    margin-top: 9px;
+  }
+
+  .inputShell input {
+    height: 42px;
+    padding-right: 88px;
+    font-size: 15px;
+  }
+
+  .bonusButtons {
+    margin-top: 12px;
+  }
+
+  .bonusButtons button {
+    display: flex;
+    min-height: 32px;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    font-size: 10px;
+  }
+
+  .bonusButtons button small {
+    display: inline;
+    font-size: 9px;
+  }
+
+  .bingoRow {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+
+  .bingoRow strong {
+    font-size: 11px;
+  }
+
+  .bingoRow small {
+    display: block;
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 9px;
+  }
+
+  .toggle {
+    width: 36px;
+    height: 19px;
+  }
+
+  .toggle span {
+    width: 13px;
+    height: 13px;
+  }
+
+  .toggleActive span {
+    transform: translateX(17px);
+  }
+
+  .scoreRow {
+    padding:
+      28px
+      0
+      12px;
+  }
+
+  .scoreRow > span {
+    font-size: 12px;
+  }
+
+  .scoreRow > span span {
+    display: inline;
+  }
+
+  .scoreRow strong {
+    font-size: 23px;
+  }
+
+  .primaryActions {
+    margin-top: 6px;
+  }
+
+  .validateButton {
+    min-height: 40px;
+    border-radius: 8px;
+    font-size: 12px;
+  }
+
+  .desktopPassButton {
+    display: block;
+    width: 92px;
+    flex: 0 0 auto;
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .secondaryActions {
+    gap: 20px;
+    margin-top: 11px;
+  }
+
+  .secondaryActions button {
+    font-size: 10px;
+  }
+}

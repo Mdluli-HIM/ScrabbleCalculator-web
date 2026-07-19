@@ -1,0 +1,827 @@
+.workflow {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.card {
+  border-radius: 18px;
+  background: var(--cream);
+  padding: 19px 16px;
+  color: var(--ink);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.cardHeader strong {
+  color: var(--green);
+}
+
+.countBadge {
+  display: grid;
+  min-width: 25px;
+  height: 21px;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--green);
+  color: #ffffff !important;
+  font-size: 10px;
+}
+
+.inputShell {
+  position: relative;
+  margin-top: 13px;
+}
+
+.inputShell input {
+  width: 100%;
+  height: 51px;
+  border: 1.5px solid var(--green);
+  border-radius: 9px;
+  outline: none;
+  background: #ffffff;
+  padding: 0 66px 0 15px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.inputShell input::placeholder {
+  color: #a79b95;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.inputShell button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  min-height: 31px;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 5px;
+  background: #edf1ee;
+  padding-inline: 10px;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.placedTiles,
+.wordTiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.placedTiles {
+  margin-top: 13px;
+}
+
+.placedTiles button {
+  position: relative;
+  display: grid;
+  width: 40px;
+  height: 43px;
+  place-items: center;
+  border: 1.5px solid var(--green);
+  border-radius: 6px;
+  background: var(--green);
+  color: #ffffff;
+}
+
+.placedTiles button strong {
+  font-size: 17px;
+}
+
+.placedTiles button small {
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  font-size: 7px;
+}
+
+.placedTiles .selectedTile {
+  background: #ffffff;
+  color: var(--green);
+  box-shadow:
+    0 0 0 2px
+    rgba(0, 95, 80, 0.2);
+}
+
+.helperText {
+  margin: 13px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.premiumButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 10px;
+}
+
+.premiumButtons button {
+  min-width: 38px;
+  min-height: 29px;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.premiumButtons .activePremium {
+  background: var(--green);
+  color: #ffffff;
+}
+
+.appliedPremiums {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 13px;
+}
+
+.appliedPremiums span {
+  border-radius: 7px;
+  background: var(--green);
+  padding: 7px 10px;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.bingoRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 15px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  font-size: 13px;
+}
+
+.toggle {
+  width: 41px;
+  height: 22px;
+  border-radius: 999px;
+  background: #d2cba8;
+  padding: 3px;
+}
+
+.toggle > span {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #ffffff;
+}
+
+.toggleActive {
+  background: var(--green);
+}
+
+.toggleActive > span {
+  transform: translateX(19px);
+}
+
+.wordList {
+  display: grid;
+}
+
+.wordItem {
+  border-bottom: 1px solid var(--line);
+  padding: 15px 0;
+}
+
+.wordHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.wordHeading > span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.wordHeading > span:first-child > strong {
+  display: grid;
+  width: 21px;
+  height: 21px;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(0, 95, 80, 0.12);
+  color: var(--green);
+  font-size: 10px;
+}
+
+.wordHeading b {
+  color: var(--green);
+  font-size: 14px;
+}
+
+.wordHeading button {
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.wordHeading .removeButton {
+  color: #cf493e;
+}
+
+.wordTiles {
+  margin-top: 12px;
+}
+
+.wordTiles > span {
+  position: relative;
+  display: grid;
+  width: 38px;
+  min-height: 52px;
+  place-items: start center;
+  border-radius: 5px;
+  padding-top: 8px;
+}
+
+.wordTiles strong {
+  font-size: 15px;
+}
+
+.wordTiles small {
+  margin-top: 10px;
+  font-size: 7px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.existingWordTile {
+  border: 1px solid #d4cec5;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.existingWordTile small {
+  color: var(--muted);
+}
+
+.newWordTile {
+  border: 1px solid var(--green);
+  background: var(--green);
+  color: #ffffff;
+}
+
+.newWordTile small {
+  color: #d3e3df;
+}
+
+.addWordButton {
+  display: inline-flex;
+  width: 100%;
+  min-height: 43px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 15px;
+  border: 1px dashed var(--green);
+  border-radius: 9px;
+  background: transparent;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.addWordButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+.scoreBreakdown {
+  display: grid;
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.scoreBreakdown > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 12px;
+}
+
+.totalRow {
+  margin-top: 4px;
+  border-top: 1px solid var(--line);
+  padding-top: 13px;
+  color: var(--green);
+  font-size: 16px !important;
+  font-weight: 900;
+}
+
+.errorMessage,
+.noticeMessage {
+  margin: 0;
+  border-radius: 9px;
+  padding: 11px 12px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.errorMessage {
+  background: #f7d5cf;
+  color: #8b251d;
+}
+
+.noticeMessage {
+  background: var(--cream);
+  color: var(--muted);
+}
+
+.submitButton {
+  width: 100%;
+  min-height: 51px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--green);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.submitButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.46;
+}
+
+.editorOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 140;
+  display: grid;
+  place-items: end center;
+  background: rgba(50, 14, 51, 0.72);
+  padding-top: 30px;
+  backdrop-filter: blur(2px);
+}
+
+.editorDialog {
+  width: 100%;
+  max-width: 520px;
+  max-height: 90svh;
+  overflow-y: auto;
+  border-radius: 22px 22px 0 0;
+  background: var(--cream);
+  padding:
+    23px
+    19px
+    calc(
+      24px +
+      env(safe-area-inset-bottom)
+    );
+  color: var(--ink);
+}
+
+.editorDialog header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.editorDialog header small {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.editorDialog h2 {
+  margin: 5px 0 0;
+  font-size: 22px;
+}
+
+.editorDialog header > button {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0, 95, 80, 0.1);
+  color: var(--green);
+}
+
+.editorDialog header svg {
+  width: 18px;
+  height: 18px;
+}
+
+.editorLabel {
+  display: grid;
+  gap: 8px;
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.editorLabel input {
+  width: 100%;
+  height: 51px;
+  border: 1.5px solid var(--green);
+  border-radius: 9px;
+  outline: none;
+  background: #ffffff;
+  padding-inline: 14px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.editorHelp {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.assignmentGrid {
+  display: grid;
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+  gap: 10px;
+  margin-top: 17px;
+}
+
+.assignmentGrid label {
+  display: grid;
+  gap: 6px;
+}
+
+.assignmentGrid label > span {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 5px;
+  background: var(--green);
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.assignmentGrid select {
+  width: 100%;
+  height: 37px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #ffffff;
+  padding-inline: 8px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 11px;
+}
+
+.editorDialog footer {
+  display: grid;
+  grid-template-columns:
+    1fr
+    1fr;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.editorDialog footer button {
+  min-height: 47px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.cancelButton {
+  border: 1px solid var(--green);
+  background: transparent;
+  color: var(--green);
+}
+
+.saveWordButton {
+  border: 0;
+  background: var(--green);
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .editorOverlay {
+    place-items: center;
+    padding: 30px;
+  }
+
+  .editorDialog {
+    max-width: 620px;
+    border-radius: 22px;
+    padding: 28px;
+  }
+
+  .assignmentGrid {
+    grid-template-columns:
+      repeat(
+        3,
+        minmax(0, 1fr)
+      );
+  }
+}
+
+@media (min-width: 1100px) {
+  .card {
+    border-radius: 14px;
+    padding: 17px 15px;
+  }
+
+  .inputShell input {
+    height: 44px;
+    font-size: 15px;
+  }
+
+  .placedTiles button {
+    width: 38px;
+    height: 40px;
+  }
+
+  .submitButton {
+    min-height: 43px;
+    font-size: 12px;
+  }
+}
+
+/* Simplified automatic word entry */
+
+.emptyPremiums {
+  margin: 13px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.wordInputList {
+  display: grid;
+  margin-top: 10px;
+}
+
+.wordInputItem {
+  border-bottom:
+    1px solid
+    var(--line);
+  padding:
+    14px
+    0;
+}
+
+.wordInputItem:last-child {
+  border-bottom: 0;
+}
+
+.wordInputTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.wordInputTop label {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.removeWordButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  background: transparent;
+  color: #cf493e;
+  font-size: 10px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.removeWordButton svg {
+  width: 13px;
+  height: 13px;
+}
+
+.wordInputShell {
+  margin-top: 9px;
+}
+
+.wordInputShell input {
+  width: 100%;
+  height: 48px;
+  border:
+    1.5px
+    solid
+    var(--green);
+  border-radius: 9px;
+  outline: none;
+  background: #ffffff;
+  padding-inline: 14px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.wordInputShell input::placeholder {
+  color: #aaa098;
+  font-weight: 500;
+}
+
+.wordInputShell input:focus {
+  box-shadow:
+    0 0 0 3px
+    rgba(
+      0,
+      95,
+      80,
+      0.12
+    );
+}
+
+.wordUsage {
+  margin: 8px 0 0;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+@media (min-width: 1100px) {
+  .wordInputShell input {
+    height: 43px;
+    font-size: 14px;
+  }
+}
+
+/* Simplified automatic word entry */
+
+.emptyPremiums {
+  margin: 13px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.multiplierImpactList {
+  display: grid;
+  gap: 8px;
+  margin-top: 13px;
+}
+
+.multiplierImpact {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border-radius: 8px;
+  background: var(--green);
+  padding: 9px 11px;
+  color: #ffffff;
+}
+
+.multiplierImpact strong {
+  font-size: 11px;
+}
+
+.multiplierImpact span {
+  color: #d3e3df;
+  font-size: 9px;
+}
+
+.wordInputList {
+  display: grid;
+  margin-top: 10px;
+}
+
+.wordInputItem {
+  border-bottom:
+    1px solid
+    var(--line);
+  padding: 14px 0;
+}
+
+.wordInputItem:last-child {
+  border-bottom: 0;
+}
+
+.wordInputTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.wordInputTop label {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.removeWordButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  background: transparent;
+  color: #cf493e;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.removeWordButton svg {
+  width: 13px;
+  height: 13px;
+}
+
+.wordInputShell {
+  margin-top: 9px;
+}
+
+.wordInputShell input {
+  width: 100%;
+  height: 48px;
+  border:
+    1.5px
+    solid
+    var(--green);
+  border-radius: 9px;
+  outline: none;
+  background: #ffffff;
+  padding-inline: 14px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.wordInputShell input:focus {
+  box-shadow:
+    0 0 0 3px
+    rgba(
+      0,
+      95,
+      80,
+      0.12
+    );
+}
+
+.wordInputShell input::placeholder {
+  color: #aaa098;
+  font-weight: 500;
+}
+
+.wordUsage {
+  margin: 8px 0 0;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+@media (min-width: 1100px) {
+  .wordInputShell input {
+    height: 43px;
+    font-size: 14px;
+  }
+}
