@@ -609,9 +609,12 @@
   text-underline-offset: 3px;
 }
 
-.secondaryActions button:nth-child(2),
-.secondaryActions button:nth-child(3) {
+.secondaryActions button:nth-child(2) {
   color: #af7aae;
+}
+
+.secondaryActions button:nth-child(3) {
+  color: #ffffff;
 }
 
 .spinner {

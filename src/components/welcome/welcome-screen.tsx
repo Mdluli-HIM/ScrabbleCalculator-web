@@ -741,6 +741,12 @@ export function WelcomeScreen({
               "Start as Guest"
             )}
           </button>
+          <Link
+            href="/quick-score"
+            className={`${styles.mobileGuestButton} ${styles.quickScoreWelcomeButton}`}
+          >
+            Quick Score
+          </Link>
 
           <AccountActions
             variant="mobile"
@@ -823,6 +829,12 @@ export function WelcomeScreen({
                 "Start as Guest"
               )}
             </button>
+            <Link
+              href="/quick-score"
+              className={`${styles.desktopGuestButton} ${styles.quickScoreWelcomeButton}`}
+            >
+              Quick Score
+            </Link>
 
             <AccountActions
               variant="desktop"

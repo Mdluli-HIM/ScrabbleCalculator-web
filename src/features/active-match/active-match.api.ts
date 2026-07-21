@@ -1,4 +1,5 @@
 import type {
+  CompleteActiveMatchInput,
   ActiveMatch,
   SubmitActiveTurnInput,
   SubmitActiveTurnResult,
@@ -162,4 +163,32 @@ export async function submitActiveTurn(
   return readResponse<
     SubmitActiveTurnResult
   >(response);
+}
+
+export async function completeActiveMatch(
+  guestSessionToken: string,
+  matchId: string,
+  input: CompleteActiveMatchInput,
+): Promise<void> {
+  const response =
+    await fetch(
+      `/api/v1/matches/${matchId}/complete`,
+      {
+        method: "POST",
+
+        headers:
+          guestHeaders(
+            guestSessionToken,
+          ),
+
+        body:
+          JSON.stringify(
+            input,
+          ),
+      },
+    );
+
+  await readResponse<{
+    result: unknown;
+  }>(response);
 }

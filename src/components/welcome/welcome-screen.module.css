@@ -689,3 +689,16 @@
     white-space: nowrap;
   }
 }
+
+
+
+/* Quick Score sits directly below Start as Guest. */
+.quickScoreWelcomeButton {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}

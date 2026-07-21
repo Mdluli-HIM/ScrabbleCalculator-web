@@ -825,3 +825,97 @@
     font-size: 14px;
   }
 }
+
+/* Beginner-friendly Active Match additions */
+
+.firstTurnGuide {
+  border-radius: 18px;
+  background: var(--cream);
+  padding: 18px 16px;
+  color: var(--ink);
+}
+
+.guideHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.guideHeader > div {
+  display: grid;
+  gap: 3px;
+}
+
+.guideHeader span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.guideHeader strong {
+  color: var(--green);
+  font-size: 16px;
+}
+
+.guideHeader button {
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 8px;
+  background: var(--green);
+  padding: 8px 11px;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.firstTurnGuide ol {
+  display: grid;
+  gap: 8px;
+  margin: 15px 0 0;
+  padding-left: 22px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.hiddenElement {
+  display: none !important;
+}
+
+.nextStepMessage {
+  margin: -5px 4px 0;
+  color: var(--cream);
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.premiumButtons {
+  display: grid;
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+  gap: 8px;
+}
+
+.premiumButtons button {
+  width: 100%;
+  min-height: 39px;
+  padding-inline: 7px;
+  line-height: 1.15;
+}
+
+@media (min-width: 768px) {
+  .premiumButtons {
+    grid-template-columns:
+      repeat(
+        4,
+        minmax(0, 1fr)
+      );
+  }
+}

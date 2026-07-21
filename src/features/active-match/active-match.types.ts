@@ -131,3 +131,30 @@ export interface SubmitActiveTurnInput {
     >;
   }>;
 }
+
+export type CompleteActiveMatchReason =
+  | "PLAYER_EMPTIED_RACK"
+  | "STALEMATE";
+
+export interface CompleteActiveMatchRackTile {
+  letter: string;
+  isBlank: boolean;
+}
+
+export interface CompleteActiveMatchPlayerInput {
+  playerId: string;
+
+  rackTiles:
+    CompleteActiveMatchRackTile[];
+}
+
+export interface CompleteActiveMatchInput {
+  reason:
+    CompleteActiveMatchReason;
+
+  finishingPlayerId?: string;
+
+  players:
+    CompleteActiveMatchPlayerInput[];
+}
+

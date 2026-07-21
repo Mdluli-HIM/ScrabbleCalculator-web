@@ -16,11 +16,13 @@ import {
 } from "lucide-react";
 
 import {
+  completeActiveMatch,
   getActiveMatch,
   submitActiveTurn,
 } from "@/features/active-match/active-match.api";
 
 import type {
+  CompleteActiveMatchInput,
   ActiveMatch,
   ActiveMatchPlayer,
   ActiveTurn,
@@ -34,6 +36,10 @@ import {
 import {
   MultiWordTurnWorkflow,
 } from "./simple-multi-word-turn-workflow";
+
+import {
+  EndMatchModal,
+} from "./end-match-modal";
 
 import styles from "./active-match-screen.module.css";
 
@@ -73,38 +79,6 @@ function getOrderedPlayers(
       first.seatNumber -
         second.seatNumber,
   );
-}
-
-function getDictionaryName(
-  match: ActiveMatch,
-): string {
-  if (
-    match.dictionaryLexicon
-      ?.name
-  ) {
-    return match
-      .dictionaryLexicon
-      .name;
-  }
-
-  switch (
-    match.dictionaryPolicy
-  ) {
-    case "OXFORD_ONLY":
-      return "Oxford Dictionary";
-
-    case "TOURNAMENT_LEXICON_ONLY":
-      return "Tournament Lexicon";
-
-    case "BOTH_REQUIRED":
-      return "Both Dictionaries Required";
-
-    case "EITHER_ACCEPTED":
-      return "Either Dictionary Accepted";
-
-    default:
-      return "Local Starter Dictionary";
-  }
 }
 
 function Brand() {
@@ -237,6 +211,25 @@ export function ActiveMatchScreen({
     isSubmitting,
     setIsSubmitting,
   ] = useState(false);
+
+
+  const [
+    isEndMatchModalOpen,
+    setIsEndMatchModalOpen,
+  ] = useState(false);
+
+  const [
+    isEndingMatch,
+    setIsEndingMatch,
+  ] = useState(false);
+
+
+  const [
+    endMatchError,
+    setEndMatchError,
+  ] = useState<
+    string | null
+  >(null);
 
   const [
     message,
@@ -409,6 +402,85 @@ export function ActiveMatchScreen({
     }
   }
 
+  function openEndMatchModal():
+    void {
+    setMessage(null);
+    setErrorMessage(null);
+    setEndMatchError(null);
+    setIsEndMatchModalOpen(true);
+  }
+
+  function closeEndMatchModal():
+    void {
+    if (isEndingMatch) {
+      return;
+    }
+
+    setEndMatchError(null);
+    setIsEndMatchModalOpen(false);
+  }
+
+  async function confirmEndMatch(
+    input: CompleteActiveMatchInput,
+  ): Promise<void> {
+    setIsEndingMatch(true);
+    setMessage(null);
+    setErrorMessage(null);
+    setEndMatchError(null);
+
+    try {
+      const guestSessionToken =
+        readGuestSessionToken();
+
+      if (!guestSessionToken) {
+        throw new Error(
+          "Your guest session has expired. Return to the welcome screen and start again.",
+        );
+      }
+
+      const forcePreviewError =
+        process.env.NODE_ENV ===
+          "development" &&
+        new URLSearchParams(
+          window.location.search,
+        ).get(
+          "endMatchState",
+        ) === "error";
+
+      if (forcePreviewError) {
+        throw new Error(
+          "The match could not be completed.",
+        );
+      }
+
+      await completeActiveMatch(
+        guestSessionToken,
+        matchId,
+        input,
+      );
+
+      setEndMatchError(null);
+      setIsEndMatchModalOpen(false);
+
+      window.sessionStorage
+        .removeItem(
+          `scrabble-turn-count:${matchId}`,
+        );
+
+      window.location.assign(
+        `/matches/${matchId}/results`,
+      );
+    } catch (error) {
+      setEndMatchError(
+        error instanceof Error
+          ? error.message
+          : "The match could not be completed.",
+      );
+    } finally {
+      setIsEndingMatch(false);
+    }
+  }
+
   function showUnavailable(
     action: string,
   ): void {
@@ -526,9 +598,7 @@ export function ActiveMatchScreen({
                 </small>
 
                 <strong>
-                  {getDictionaryName(
-                    match,
-                  )}
+                  Players decide word validity
                 </strong>
               </span>
             </div>
@@ -659,9 +729,8 @@ export function ActiveMatchScreen({
             </h2>
 
             <p>
-              Enter the tiles placed and
-              every word formed on the
-              board.
+              Enter the tiles you played,
+              then every word you made.
             </p>
           </section>
 
@@ -777,9 +846,7 @@ export function ActiveMatchScreen({
             <button
               type="button"
               onClick={() => {
-                showUnavailable(
-                  "End Match",
-                );
+                openEndMatchModal();
               }}
             >
               <span
@@ -797,6 +864,37 @@ export function ActiveMatchScreen({
           </div>
         </section>
       </div>
+      <EndMatchModal
+        isOpen={
+          isEndMatchModalOpen
+        }
+        isLoading={
+          isEndingMatch
+        }
+        errorMessage={
+          endMatchError
+        }
+        matchName={
+          match.name ??
+          "Scrabble Match"
+        }
+        roundNumber={
+          roundNumber
+        }
+        playerCount={
+          match.playerCount
+        }        players={
+          match.players
+        }
+
+        onClose={
+          closeEndMatchModal
+        }
+        onConfirm={
+          confirmEndMatch
+        }
+      />
+
     </main>
   );
 }

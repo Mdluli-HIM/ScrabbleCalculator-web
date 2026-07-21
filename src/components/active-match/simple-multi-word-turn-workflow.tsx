@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -9,6 +10,10 @@ import {
   Plus,
   Trash2,
 } from "lucide-react";
+
+import {
+  ActiveMatchApiError,
+} from "@/features/active-match/active-match.api";
 
 import type {
   SubmitActiveTurnInput,
@@ -43,25 +48,126 @@ const PREMIUM_OPTIONS: Array<{
 }> = [
   {
     value: "DOUBLE_LETTER",
-    label: "DL",
+    label: "Double Letter",
   },
   {
     value: "TRIPLE_LETTER",
-    label: "TL",
+    label: "Triple Letter",
   },
   {
     value: "DOUBLE_WORD",
-    label: "DW",
+    label: "Double Word",
   },
   {
     value: "TRIPLE_WORD",
-    label: "TW",
+    label: "Triple Word",
   },
 ];
 
 interface WordInputDraft {
   id: string;
   value: string;
+}
+
+interface InvalidDictionaryWord {
+  word?: unknown;
+  normalizedWord?: unknown;
+  accepted?: unknown;
+  isValid?: unknown;
+  valid?: unknown;
+  status?: unknown;
+}
+
+function getInvalidWordNames(
+  details: unknown,
+): string[] {
+  if (
+    !details ||
+    typeof details !==
+      "object"
+  ) {
+    return [];
+  }
+
+  const wordsValue =
+    (
+      details as {
+        words?: unknown;
+      }
+    ).words;
+
+  if (
+    !Array.isArray(
+      wordsValue,
+    )
+  ) {
+    return [];
+  }
+
+  const invalidWords =
+    wordsValue
+      .filter(
+        (
+          entry,
+        ): entry is InvalidDictionaryWord =>
+          Boolean(
+            entry &&
+            typeof entry ===
+              "object",
+          ),
+      )
+      .filter(
+        (entry) => {
+          if (
+            entry.accepted ===
+              false ||
+            entry.isValid ===
+              false ||
+            entry.valid ===
+              false
+          ) {
+            return true;
+          }
+
+          if (
+            typeof entry.status ===
+              "string"
+          ) {
+            return [
+              "INVALID",
+              "REJECTED",
+              "NOT_FOUND",
+              "UNKNOWN",
+            ].includes(
+              entry.status
+                .toUpperCase(),
+            );
+          }
+
+          return false;
+        },
+      )
+      .map(
+        (entry) => {
+          const candidate =
+            entry.word ??
+            entry.normalizedWord;
+
+          return typeof candidate ===
+            "string"
+            ? candidate
+                .trim()
+                .toUpperCase()
+            : "";
+        },
+      )
+      .filter(Boolean);
+
+  return [
+    ...new Set(
+      invalidWords,
+    ),
+  ];
 }
 
 interface MultiWordTurnWorkflowProps {
@@ -188,6 +294,36 @@ export function MultiWordTurnWorkflow({
     string | null
   >(null);
 
+  const [
+    showFirstTurnGuide,
+    setShowFirstTurnGuide,
+  ] = useState(false);
+
+  useEffect(() => {
+    const timer =
+      window.setTimeout(
+        () => {
+          const guideCompleted =
+            window.localStorage
+              .getItem(
+                "scrabble-turn-guide-completed",
+              );
+
+          setShowFirstTurnGuide(
+            guideCompleted !==
+              "true",
+          );
+        },
+        0,
+      );
+
+    return () => {
+      window.clearTimeout(
+        timer,
+      );
+    };
+  }, []);
+
   const formedWords =
     useMemo(
       () =>
@@ -261,6 +397,18 @@ export function MultiWordTurnWorkflow({
     wordsWithoutNewTiles.length ===
       0 &&
     !isSubmitting;
+
+  function dismissFirstTurnGuide():
+    void {
+    window.localStorage.setItem(
+      "scrabble-turn-guide-completed",
+      "true",
+    );
+
+    setShowFirstTurnGuide(
+      false,
+    );
+  }
 
   function resetMessages():
     void {
@@ -461,8 +609,41 @@ export function MultiWordTurnWorkflow({
 
       await onSubmit(input);
 
+      window.localStorage.setItem(
+        "scrabble-turn-guide-completed",
+        "true",
+      );
+
+      setShowFirstTurnGuide(
+        false,
+      );
+
       clearTurn();
     } catch (error) {
+      if (
+        error instanceof
+          ActiveMatchApiError &&
+        error.code ===
+          "TURN_WORDS_INVALID"
+      ) {
+        const invalidWords =
+          getInvalidWordNames(
+            error.details,
+          );
+
+        setErrorMessage(
+          invalidWords.length > 0
+            ? invalidWords.length === 1
+              ? `${invalidWords[0]} was not found in the selected dictionary. Check the spelling or choose another word.`
+              : `${invalidWords.join(
+                  ", ",
+                )} were not found in the selected dictionary.`
+            : "One or more words were not found in the selected dictionary.",
+        );
+
+        return;
+      }
+
       setErrorMessage(
         error instanceof Error
           ? error.message
@@ -472,14 +653,98 @@ export function MultiWordTurnWorkflow({
   }
 
   const actionLabel =
-    formedWords.length <= 1
-      ? "Validate & Score Word"
-      : `Validate & Score ${formedWords.length} Words`;
+    "Score This Turn";
+
+  const nextStepMessage = (() => {
+    if (
+      placedTiles.length === 0
+    ) {
+      return "Enter the tiles you placed to begin.";
+    }
+
+    if (
+      formedWords.length === 0
+    ) {
+      return "Enter the main word you made.";
+    }
+
+    if (
+      wordsWithoutNewTiles.length >
+      0
+    ) {
+      return `${getFormedWordText(
+        wordsWithoutNewTiles[0],
+      )} does not use any tile you entered.`;
+    }
+
+    const unusedTileError =
+      validation.errors.find(
+        (error) =>
+          error.includes(
+            "is not used in any formed word",
+          ),
+      );
+
+    if (unusedTileError) {
+      return "Add every word created by the tiles you placed.";
+    }
+
+    return (
+      validation.errors[0] ??
+      null
+    );
+  })();
 
   return (
     <div
       className={styles.workflow}
     >
+      {showFirstTurnGuide ? (
+        <section
+          className={styles.firstTurnGuide}
+        >
+          <div
+            className={styles.guideHeader}
+          >
+            <div>
+              <span>
+                First turn?
+              </span>
+
+              <strong>
+                Score it in four steps
+              </strong>
+            </div>
+
+            <button
+              type="button"
+              onClick={
+                dismissFirstTurnGuide
+              }
+            >
+              Got it
+            </button>
+          </div>
+
+          <ol>
+            <li>
+              Enter the tiles you placed.
+            </li>
+
+            <li>
+              Enter every word you made.
+            </li>
+
+            <li>
+              Add a board bonus when needed.
+            </li>
+
+            <li>
+              Press Score This Turn.
+            </li>
+          </ol>
+        </section>
+      ) : null}
       <section
         className={styles.card}
       >
@@ -487,7 +752,7 @@ export function MultiWordTurnWorkflow({
           className={styles.cardHeader}
         >
           <span>
-            Tiles Placed
+            Tiles You Placed
           </span>
 
           <strong>
@@ -503,7 +768,7 @@ export function MultiWordTurnWorkflow({
           <input
             type="text"
             value={tileInput}
-            placeholder="Type tiles here..."
+            placeholder="Enter rack tiles..."
             disabled={isSubmitting}
             autoComplete="off"
             autoCapitalize="characters"
@@ -575,8 +840,8 @@ export function MultiWordTurnWorkflow({
         <p
           className={styles.helperText}
         >
-          Select a placed tile and
-          apply its board bonus.
+          Tap a tile only when it landed
+          on a bonus square.
         </p>
 
         <div
@@ -611,6 +876,8 @@ export function MultiWordTurnWorkflow({
         </div>
       </section>
 
+      {activePremiums.length > 0 ||
+        placedTiles.length === 7 ? (
       <section
         className={styles.card}
       >
@@ -618,7 +885,7 @@ export function MultiWordTurnWorkflow({
           className={styles.cardHeader}
         >
           <span>
-            Multipliers Applied
+            Board Bonuses
           </span>
         </div>
 
@@ -677,12 +944,16 @@ export function MultiWordTurnWorkflow({
           <p
             className={styles.emptyPremiums}
           >
-            No multipliers applied.
+            No board bonus selected.
           </p>
         )}
 
         <div
-          className={styles.bingoRow}
+          className={`${styles.bingoRow} ${
+            placedTiles.length === 7
+              ? ""
+              : styles.hiddenElement
+          }`}
         >
           <strong>
             7-Letter Bonus
@@ -702,6 +973,7 @@ export function MultiWordTurnWorkflow({
           </span>
         </div>
       </section>
+      ) : null}
 
       <section
         className={styles.card}
@@ -710,7 +982,7 @@ export function MultiWordTurnWorkflow({
           className={styles.cardHeader}
         >
           <span>
-            Words Created
+            Words You Made
           </span>
 
           <strong
@@ -756,7 +1028,9 @@ export function MultiWordTurnWorkflow({
                     >
                       {index === 0
                         ? "Main Word"
-                        : `Additional Word ${index}`}
+                        : words.length === 2
+                          ? "Other Word"
+                          : `Other Word ${index}`}
                     </label>
 
                     {index > 0 ? (
@@ -813,13 +1087,13 @@ export function MultiWordTurnWorkflow({
                     >
                       {usedTiles.length >
                       0
-                        ? `New tiles detected: ${usedTiles
+                        ? `Uses your tiles: ${usedTiles
                             .map(
                               (tile) =>
                                 tile.letter,
                             )
                             .join(", ")}`
-                        : "No newly placed tile detected."}
+                        : "This word does not use any tile you entered."}
                     </p>
                   ) : null}
                 </article>
@@ -844,6 +1118,7 @@ export function MultiWordTurnWorkflow({
         </button>
       </section>
 
+      {formedWords.length > 0 ? (
       <section
         className={styles.card}
       >
@@ -851,7 +1126,7 @@ export function MultiWordTurnWorkflow({
           className={styles.cardHeader}
         >
           <span>
-            Score Breakdown
+            This Turn&apos;s Score
           </span>
         </div>
 
@@ -904,6 +1179,7 @@ export function MultiWordTurnWorkflow({
           </div>
         </div>
       </section>
+      ) : null}
 
       {errorMessage ? (
         <p
@@ -935,6 +1211,18 @@ export function MultiWordTurnWorkflow({
           ? "Validating Words..."
           : actionLabel}
       </button>
+
+      {!canSubmit &&
+      nextStepMessage ? (
+        <p
+          className={
+            styles.nextStepMessage
+          }
+          role="status"
+        >
+          {nextStepMessage}
+        </p>
+      ) : null}
     </div>
   );
 }
